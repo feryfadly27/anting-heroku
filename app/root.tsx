@@ -33,6 +33,12 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap",
   },
+  // Material Symbols: mobile bottom nav uses ligature text (e.g. child_care, campaign).
+  // Load globally so icons work in production (CSS-module @import alone can load too late).
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",
+  },
   {
     rel: "manifest",
     href: "/manifest.webmanifest",
