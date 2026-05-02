@@ -9,6 +9,7 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "dev:smoke": "bash ./jalankansistem.sh",
+    "deploy:all": "bash ./deploy-heroku/scripts/push-all.sh",
     "jalankansistem": "bash ./jalankansistem.sh",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",

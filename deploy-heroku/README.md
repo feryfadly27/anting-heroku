@@ -81,6 +81,15 @@ Atau dari root aplikasi:
 bash deploy-heroku/scripts/deploy.sh main
 ```
 
+**Push GitHub + Heroku sekaligus** (setelah commit; branch default = branch aktif):
+
+```bash
+npm run deploy:all
+# atau: bash deploy-heroku/scripts/push-all.sh
+# branch tertentu: bash deploy-heroku/scripts/push-all.sh main
+# jika sengaja push tanpa working tree bersih: .../push-all.sh --allow-dirty
+```
+
 ### 6. Cek build dan runtime
 
 ```bash
@@ -127,5 +136,6 @@ Jangan commit file `.env` berisi rahasia produksi.
 
 | File | Fungsi |
 |------|--------|
-| [`scripts/deploy.sh`](scripts/deploy.sh) | Push ke Heroku dari root aplikasi |
+| [`scripts/deploy.sh`](scripts/deploy.sh) | Push ke Heroku saja (argumen: nama branch) |
+| [`scripts/push-all.sh`](scripts/push-all.sh) | Push **origin** lalu **heroku** (satu branch); gagal jika ada perubahan belum commit |
 | [`scripts/check-env.sh`](scripts/check-env.sh) | Cek login Heroku dan remote `git` |
