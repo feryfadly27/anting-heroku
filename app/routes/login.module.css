@@ -1,0 +1,213 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  padding: 1rem;
+}
+
+.loginContainer {
+  background: #fff;
+  padding: 1.15rem;
+  border-radius: 0.95rem;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  max-width: 29rem;
+}
+
+.logoSection {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logoIcon {
+  width: 2.6rem;
+  height: 2.6rem;
+  color: #00b0f0;
+  margin: 0 auto 0.45rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.2rem, 3.2vw, 1.45rem);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0.28rem 0 0;
+  font-size: 0.93rem;
+  color: #64748b;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.89rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input {
+  padding: 0.72rem 0.84rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.65rem;
+  font-size: 0.94rem;
+  color: #0f172a;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #00b0f0;
+  box-shadow: 0 0 0 3px rgba(0, 176, 240, 0.14);
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-top: -0.3rem;
+}
+
+.forgotPasswordLink {
+  font-size: 0.82rem;
+  color: #0284c7;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgotPasswordLink:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.submitButton {
+  margin-top: 0.2rem;
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  background: #00b0f0;
+  color: #fff;
+  border: none;
+  border-radius: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #0098cf;
+  transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.dividerText {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.registerPrompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.registerLink {
+  color: #0284c7;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.registerLink:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.errorMessage {
+  padding: 0.65rem 0.8rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.6rem;
+  color: #b91c1c;
+  font-size: 0.88rem;
+}
+
+.demoCredentials {
+  margin-top: 0.95rem;
+  padding: 0.8rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.7rem;
+}
+
+.demoTitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.demoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.demoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.demoRole {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+@media (max-width: 768px) {
+  .loginPage {
+    align-items: flex-start;
+    padding: 0.9rem;
+  }
+
+  .loginContainer {
+    margin-top: 0.4rem;
+    padding: 0.95rem;
+    max-width: 100%;
+  }
+}

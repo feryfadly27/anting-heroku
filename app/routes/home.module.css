@@ -1,0 +1,166 @@
+.home {
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #2c2420;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  color: #00b0f0;
+}
+
+.logoText {
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.primaryButton {
+  background: #00b0f0 !important;
+  color: #fff !important;
+  border: 1px solid #00b0f0 !important;
+}
+
+.primaryButton:hover {
+  background: #0098cf !important;
+  border-color: #0098cf !important;
+}
+
+.secondaryButton {
+  background: #fff !important;
+  color: #0284c7 !important;
+  border: 1px solid #bae6fd !important;
+}
+
+.secondaryButton:hover {
+  background: #f0f9ff !important;
+  color: #0369a1 !important;
+  border-color: #7dd3fc !important;
+}
+
+.hero {
+  padding: 1.1rem 1rem 0.8rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.hero::before {
+  content: "";
+  display: block;
+  height: 0;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 4.3vw, 2.1rem);
+  line-height: 1.2;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.heroTagline {
+  margin: 0.65rem 0 0;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  line-height: 1.6;
+  color: #475569;
+  max-width: 44rem;
+}
+
+.heroCta {
+  margin-top: 0.95rem;
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.overview {
+  padding: 0.2rem 1rem 1.2rem;
+}
+
+.overviewContainer {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.overviewTitle {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.02rem, 2.6vw, 1.25rem);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.7rem;
+}
+
+.overviewCard {
+  background: #fff;
+  padding: 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.cardIcon {
+  width: 1.85rem;
+  height: 1.85rem;
+  color: #00b0f0;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cardDescription {
+  margin: 0.35rem 0 0;
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .headerActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroCta {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

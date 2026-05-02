@@ -1,0 +1,276 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.titleIcon {
+  color: var(--color-accent-9);
+}
+
+.title {
+  font: var(--font-heading);
+  color: var(--color-neutral-12);
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-neutral-9);
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: var(--space-8);
+}
+
+.filterButtons {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-5);
+}
+
+.card {
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-6);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent-7);
+  box-shadow: var(--shadow-2);
+}
+
+.cardHeader {
+  padding: var(--space-4);
+  background: var(--color-neutral-2);
+  border-bottom: 1px solid var(--color-neutral-6);
+}
+
+.cardTitleSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardTitle {
+  font: var(--font-subheading);
+  color: var(--color-neutral-12);
+  margin: 0;
+}
+
+.badgeNoData {
+  background: var(--color-neutral-4);
+  color: var(--color-neutral-11);
+  border: none;
+}
+
+.badgeAttention {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.badgeNormal {
+  background: var(--color-success-9);
+  color: var(--color-success-contrast);
+  border: none;
+}
+
+.cardBody {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.infoLabel {
+  font: var(--font-body);
+  color: var(--color-neutral-11);
+  font-weight: 500;
+}
+
+.infoValue {
+  font: var(--font-body);
+  color: var(--color-neutral-12);
+  text-align: right;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-neutral-6);
+  margin: var(--space-2) 0;
+}
+
+.measurementSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.measurementTitle {
+  font: var(--font-body);
+  font-weight: 600;
+  color: var(--color-neutral-11);
+  margin: 0;
+}
+
+.measurementGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.measurementItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.measurementLabel {
+  font: var(--font-caption);
+  color: var(--color-neutral-10);
+  font-weight: 500;
+}
+
+.measurementValue {
+  font: var(--font-caption);
+  color: var(--color-neutral-12);
+  font-weight: 600;
+}
+
+.zscoreSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.zscoreItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.zscoreLabel {
+  font: var(--font-caption);
+  color: var(--color-neutral-10);
+  font-weight: 500;
+}
+
+.zscoreBadge {
+  font-size: 0.75rem;
+}
+
+.cardFooter {
+  padding: var(--space-4);
+  background: var(--color-neutral-2);
+  border-top: 1px solid var(--color-neutral-6);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actionButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-9);
+  gap: var(--space-4);
+  background: var(--color-neutral-2);
+  border: 2px dashed var(--color-neutral-6);
+  border-radius: var(--radius-4);
+}
+
+.emptyIcon {
+  color: var(--color-neutral-8);
+}
+
+.emptyText {
+  font: var(--font-body);
+  color: var(--color-neutral-10);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .searchWrapper {
+    max-width: none;
+  }
+
+  .measurementGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+  }
+}
+
+.tableWrapper {
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-6);
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+  margin-top: var(--space-4);
+}

@@ -1,0 +1,993 @@
+<!-- Dashboard Orang Tua - Generasi Bebas Stunting -->
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b0f0",
+                        "secondary": "#28a745",
+                        "warm-dark": "#2C2420",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#0f1e23",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Stunting Prevention Dashboard</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-warm-dark dark:text-slate-100 min-h-screen pb-24">
+<!-- Header Section -->
+<header class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 shadow-sm">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-primary/20 flex items-center justify-center rounded-full size-10 text-primary">
+<span class="material-symbols-outlined text-3xl">face_6</span>
+</div>
+</div>
+<div class="flex-1 ml-2">
+<h2 class="text-warm-dark dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Halo, Bunda!</h2>
+<p class="text-xs text-warm-dark/60 dark:text-slate-400">Semoga harimu menyenangkan.</p>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="relative flex items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-slate-800 text-warm-dark dark:text-slate-100">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 flex h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4">
+<!-- Growth Status Summary -->
+<div class="mt-6 mb-8">
+<h2 class="text-warm-dark dark:text-slate-100 text-[22px] font-bold leading-tight tracking-tight mb-4">Status Pertumbuhan Si Kecil</h2>
+<div class="p-5 rounded-xl bg-white dark:bg-slate-800 shadow-md border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs font-medium uppercase tracking-wider text-warm-dark/50 dark:text-slate-400">Update: 24 Mei 2024</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-secondary flex items-center"><span class="material-symbols-outlined text-lg">check_circle</span></span>
+<p class="text-warm-dark dark:text-slate-100 text-xl font-bold">Status: Normal</p>
+</div>
+</div>
+<div class="h-14 w-14 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm font-medium mb-1">
+<span>Tinggi Badan / Umur (Z-Score)</span>
+<span class="text-secondary">+1.2 SD</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm font-medium mb-1">
+<span>Berat Badan / Umur (Z-Score)</span>
+<span class="text-secondary">+0.8 SD</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-2.5 bg-primary/10 text-primary font-bold rounded-lg hover:bg-primary/20 transition-colors flex items-center justify-center gap-2">
+<span>Lihat Grafik Detail</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Main Features Grid -->
+<section class="mb-8">
+<h3 class="text-lg font-bold mb-4">Layanan Utama</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- KIA Digital -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+<div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 mb-3">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<span class="text-sm font-bold">Buku KIA Digital</span>
+</div>
+<!-- Menu MPASI -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+<div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center text-orange-600 dark:text-orange-400 mb-3">
+<span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+</div>
+<span class="text-sm font-bold">Menu MPASI</span>
+</div>
+<!-- Konsultasi -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+<div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 mb-3">
+<span class="material-symbols-outlined text-2xl">forum</span>
+</div>
+<span class="text-sm font-bold">Konsultasi Ahli</span>
+</div>
+<!-- Pengingat -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+<div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center text-red-600 dark:text-red-400 mb-3">
+<span class="material-symbols-outlined text-2xl">event_upcoming</span>
+</div>
+<span class="text-sm font-bold">Jadwal Imunisasi</span>
+</div>
+</div>
+</section>
+<!-- Immunization Notification -->
+<section class="mb-8">
+<div class="bg-primary/10 border-l-4 border-primary p-4 rounded-r-lg">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">notification_important</span>
+<div>
+<h4 class="font-bold text-sm text-primary">Pengingat Imunisasi</h4>
+<p class="text-sm text-warm-dark/80 dark:text-slate-300 mt-1">
+                            Si Kecil dijadwalkan untuk <b>Polio 4 &amp; DPT-HB-Hib 3</b> dalam 3 hari lagi (27 Mei 2024).
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Healthy Recipe Card -->
+<section class="mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold">Rekomendasi Menu MPASI</h3>
+<a class="text-primary text-sm font-medium" href="#">Lihat Semua</a>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="h-40 bg-cover bg-center" data-alt="Bowl of nutritious vegetable and protein mash for baby" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWexvpVcuz8qGI8PcoM4NtLaX1br9uInHUgXBH6NzFq248Q_Sb4QvSJ4q9SMlHIiTihq-Kh1qMsYCnBHo0p0DA-PufUZcgku5IIcXCpwsqwo04XAEofz1F6v1q16aOYEe8ioewdoMN8cn7GuyT5P4NSpLjuq6uBLVtApD5M8KhHATnmpqt_cGs35ev5oPs5QWUh441nBFkeLk-D8Amyo7q9RADQBiL3Pixcgdzy31FPiudMH0dU-CQwQtLI702ygQlGN8u3xkqwQ')"></div>
+<div class="p-4">
+<div class="flex gap-2 mb-2">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase">Tinggi Protein</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase">6-8 Bulan</span>
+</div>
+<h4 class="font-bold text-warm-dark dark:text-slate-100">Bubur Hati Ayam &amp; Bayam</h4>
+<p class="text-sm text-warm-dark/60 dark:text-slate-400 mt-1">Membantu kecerdasan dan pertumbuhan sel darah merah si kecil.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 px-4 pb-4 pt-2 z-50">
+<div class="flex justify-between max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Grafik</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-medium">Konsultasi</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Akun</span>
+</a>
+</div>
+</nav>
+</body></html>
+
+<!-- Dashboard Kader - Pantau Stunting -->
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kader Dashboard - Pencegahan Stunting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b0f0",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#0f1e23",
+                        "text-main": "#2c2420",
+                        "success": "#28a745",
+                        "warning": "#ffc107",
+                        "danger": "#dc3545",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #2c2420;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header Section -->
+<header class="flex items-center bg-white dark:bg-slate-900 p-4 sticky top-0 z-10 shadow-sm justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="Portrait of Health Volunteer Kader Siti" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMgKDzoIkzVG2Fi5Zf6pV2T4fSO7uSyefHP2xpZ8l8BAPghWhtNo1WTrGoqrmu3YDsWIhhO64BWEsD6PvcEK63wKas_Uo0UQkTBGRajcGrowW-BilbruSNoOommGY1NTC0UGPADmVsbnuQnrS1upHyZriWV49MWZpQuOmf12eJm2sZ42uR2aZLjO42iLqi53hMThH3jAV0K4u7OcWMHagLRW0wWKx-sPIB2KpQoDqysaXluqaza6NeV3fh1dpwC7H2VTsKFBqoIw");'></div>
+<div>
+<h2 class="text-text-main dark:text-white text-base font-bold leading-tight">Kader Siti</h2>
+<p class="text-xs text-primary font-medium">Posyandu Melati, Jakarta</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-danger rounded-full border-2 border-white"></span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- Quick Stats -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<div class="flex flex-col gap-2 rounded-xl p-4 bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-lg">child_care</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Total Balita</p>
+</div>
+<p class="text-text-main dark:text-white text-2xl font-bold">48</p>
+<p class="text-success text-[10px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +2 bulan ini
+                    </p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-4 bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-2 text-danger">
+<span class="material-symbols-outlined text-lg">warning</span>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Perlu Perhatian</p>
+</div>
+<p class="text-text-main dark:text-white text-2xl font-bold">12</p>
+<p class="text-danger text-[10px] font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">priority_high</span> Status Stunting
+                    </p>
+</div>
+</div>
+<!-- Main Actions -->
+<div class="px-4 pb-6">
+<h3 class="text-text-main dark:text-white text-sm font-bold mb-3 uppercase tracking-wider">Aksi Cepat</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-primary text-white shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-3xl">add_chart</span>
+<span class="text-xs font-bold">Input Data Balita</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<span class="material-symbols-outlined text-3xl text-primary">calendar_month</span>
+<span class="text-xs font-bold">Jadwal Posyandu</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<span class="material-symbols-outlined text-3xl text-primary">groups</span>
+<span class="text-xs font-bold">Daftar Anak</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+<span class="material-symbols-outlined text-3xl text-primary">menu_book</span>
+<span class="text-xs font-bold">Edukasi Stunting</span>
+</button>
+</div>
+</div>
+<!-- Monitoring List (Searchable Style) -->
+<div class="px-4 pb-6">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-text-main dark:text-white text-sm font-bold uppercase tracking-wider">Daftar Anak Terakhir</h3>
+<a class="text-primary text-xs font-bold" href="#">Lihat Semua</a>
+</div>
+<!-- Search Mockup -->
+<div class="relative mb-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800 border-none rounded-lg text-xs focus:ring-1 focus:ring-primary shadow-sm" placeholder="Cari nama balita..." type="text"/>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Child Card 1 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm border-l-4 border-success">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">face</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white">Adit Pratama</p>
+<p class="text-[10px] text-slate-500">24 Bulan • 12.5 kg</p>
+</div>
+</div>
+<div class="px-2 py-1 bg-success/10 text-success text-[10px] font-bold rounded">Normal</div>
+</div>
+<!-- Child Card 2 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm border-l-4 border-warning">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">face_2</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white">Siti Aminah</p>
+<p class="text-[10px] text-slate-500">18 Bulan • 8.2 kg</p>
+</div>
+</div>
+<div class="px-2 py-1 bg-warning/10 text-warning text-[10px] font-bold rounded">Waspada</div>
+</div>
+<!-- Child Card 3 -->
+<div class="flex items-center justify-between p-3 bg-white dark:bg-slate-800 rounded-xl shadow-sm border-l-4 border-danger">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">face</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white">Budi Santoso</p>
+<p class="text-[10px] text-slate-500">30 Bulan • 9.0 kg</p>
+</div>
+</div>
+<div class="px-2 py-1 bg-danger/10 text-danger text-[10px] font-bold rounded">Stunting</div>
+</div>
+</div>
+</div>
+<!-- Resource Library Preview -->
+<div class="px-4 pb-6">
+<h3 class="text-text-main dark:text-white text-sm font-bold mb-3 uppercase tracking-wider">Materi Edukasi</h3>
+<div class="flex gap-4 overflow-x-auto no-scrollbar">
+<div class="min-w-[200px] bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="h-24 w-full bg-slate-200" data-alt="Healthy nutrition and vegetables for babies" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFt2Z_6NaPD6FKURHedDU8dogy9m6sJMXtF58yCxlyXM0fngCMMlcaf7QsGN1VyVnlTShkQd9RwCATukX9-DrfvEx7KCbbfnDQ7hbA5yPy-ii7_lEFupw7swoTziFK5nlLXzmGWNnRcIS_tK0uCAYrAUUjQxR5tGI4It8dcIYMtd8Z9tNNlOQn5wbOcenlia3k_-PNeko8DFSVlMjIa5e7WUOPQgMrvWBIxqUAxasd1rHkd1YKKUHQngNfMMIZpJ25vWSb5-1yvQ'); background-size: cover;"></div>
+<div class="p-3">
+<p class="text-xs font-bold leading-tight">Menu MPASI Bergizi Tinggi Protein Hewani</p>
+</div>
+</div>
+<div class="min-w-[200px] bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="h-24 w-full bg-slate-200" data-alt="Sanitation and clean water icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhgKBME585oxOqIrkftSNOqd8RUnQoeFPotIr4cN2lZutNQjgqaWTlDGUHnJQ-jCzpVh3ss33A-PEM4dIhit6u1mJvcci3mFAUHop1Nf70yCdV0P_ugTUUxNkiy9pAePrXbQ6n8UfFYhHyYfM1tOqQoZgeEfUHfdO3ja47sAyhju7sxcEnFeEdD4cSxGNXLn0hxlbYSUufd-5JvZYPyagZke1397xAKu4uJjJ963FLrMSAsoz9s9Zf3KYaq1dzfB_eZJ4BhtxqZQ'); background-size: cover;"></div>
+<div class="p-3">
+<p class="text-xs font-bold leading-tight">Pentingnya Sanitasi Lingkungan &amp; Air Bersih</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-medium">Laporan</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profil</span>
+</a>
+</nav>
+</div>
+</body></html>
+
+<!-- Dashboard Orang Tua (Minimalist V2) -->
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b0f0", // Kemenkes Blue
+                        "success": "#27ae60", // Kemenkes Green
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f1e23",
+                        "neutral-dark": "#1a1c1e",
+                        "neutral-muted": "#5e808d",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Dashboard Bunda - Pencegahan Stunting</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-dark dark:text-slate-100 antialiased">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 py-4">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Profil Bunda Siska foto wajah ramah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv9V1z37_wfdMtZpBAKpvE-5BGoHK1qrBmjCqyqcbovroWSRlIZrcGbJCLR5JOJ94uciKrVsdfPVPIi9vh9hyr-Md8TA8D8jBoEZ1JGCgRnIcGSXK-4BzvTilfqEks-_5wtMMfUT3Q1suYy6T4egqEyEua4miUNHwUQ61riCtEH_nwM1nbs_D3ilHD6c738POG98jY7ShuyF5tSGM0NJNuRlppAq6mfSorQvKzeuj6HoLxZv0gTsmv9lCwmZt84uw5EgvtIjc4xw"/>
+</div>
+<div>
+<h1 class="text-sm font-semibold text-neutral-dark dark:text-slate-100">Halo, Bunda Siska</h1>
+<p class="text-[10px] uppercase tracking-wider text-neutral-muted font-medium">Pemantauan Si Kecil</p>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-neutral-dark dark:text-slate-100">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 pb-32">
+<!-- Quick Status Card -->
+<section class="mt-6 mb-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-primary/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<h2 class="text-lg font-bold">Status Pertumbuhan</h2>
+<span class="px-2 py-1 bg-success/10 text-success text-[10px] font-bold rounded uppercase">Optimal</span>
+</div>
+<div class="space-y-4">
+<!-- List based layout -->
+<div class="flex items-center justify-between py-2 border-b border-background-light dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">straighten</span>
+<span class="text-sm font-medium">Tinggi Badan</span>
+</div>
+<div class="text-right">
+<p class="text-base font-bold">82.5 cm</p>
+<p class="text-[10px] text-success font-medium">+1.2% bulan ini</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-background-light dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">weight</span>
+<span class="text-sm font-medium">Berat Badan</span>
+</div>
+<div class="text-right">
+<p class="text-base font-bold">11.2 kg</p>
+<p class="text-[10px] text-success font-medium">+0.5% bulan ini</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">face</span>
+<span class="text-sm font-medium">Lingkar Kepala</span>
+</div>
+<div class="text-right">
+<p class="text-base font-bold">46.8 cm</p>
+<p class="text-[10px] text-neutral-muted font-medium">Normal</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MPASI Menu Section -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-neutral-muted">Menu MPASI Hari Ini</h3>
+<a class="text-xs font-semibold text-primary" href="#">Lihat Semua</a>
+</div>
+<div class="space-y-3">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl flex gap-4 items-center border border-primary/5">
+<div class="size-16 rounded-lg bg-background-light overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Bubur saring hati ayam brokoli" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sIi2bj4qRJS_KcigruVCo1BRn4ru5JoPZef_MQBzIRrPYbz5sNGCNbrQjM8xm1gPC5UV7YMjVVXir-OLU-WNyTHoNp_e2WqHjvQ9ZUH1cMV_N88tNYr5likiqykJdy5WYHuywDDqrC2S2fu24DwH5mcTn22Gr_t3cx-KHauYK_UF_bK3-_Yqqqjsp3Al1-q6FjeFZOZ7Mm4E_EzM3Rhq5bnPzW6432bJp0EwWJ-Llks7FVECASlrqGYTlNED-6HR3ZUhXSljxw"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] font-bold text-success uppercase">Sarapan</p>
+<h4 class="text-sm font-bold leading-tight">Bubur Saring Hati Ayam &amp; Brokoli</h4>
+<p class="text-xs text-neutral-muted mt-1">Tinggi Zat Besi &amp; Protein</p>
+</div>
+<button class="material-symbols-outlined text-neutral-muted">chevron_right</button>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl flex gap-4 items-center border border-primary/5">
+<div class="size-16 rounded-lg bg-background-light overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Puree labu kuning dan telur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpwaFKy5xvTVUqFcQ1o_zRTefv8oB87B-Y9aZmQWy7KxNeCwtpW1UrU3YQHhMK5a0Dg07QQBFThwuJJni-qtQESzmdsRmcia0sN7wOsZ0aGekPKwDsSFoAZCrcyGsJhnSFYIYXfifp43hcyLZE5Y9JobHsaJxmPLAY69vATs2en19BSirhmn_438QvGJAeOkTvJYo41tlTFu0ym03uwlZD2hMLjPEXZ6JtjIY-vuKeurNgDTDkYsrqqaYNjdmZ_QsISaWSQcZhyQ"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] font-bold text-primary uppercase">Makan Siang</p>
+<h4 class="text-sm font-bold leading-tight">Puree Labu Kuning &amp; Telur Puyuh</h4>
+<p class="text-xs text-neutral-muted mt-1">Kaya Vitamin A</p>
+</div>
+<button class="material-symbols-outlined text-neutral-muted">chevron_right</button>
+</div>
+</div>
+</section>
+<!-- Expert Consultation -->
+<section class="mb-8">
+<h3 class="text-sm font-bold uppercase tracking-widest text-neutral-muted mb-4">Konsultasi Ahli</h3>
+<div class="bg-neutral-dark text-white rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-lg font-bold mb-2">Butuh bantuan Nutrisi?</h4>
+<p class="text-sm text-slate-300 mb-4 max-w-[200px]">Hubungi Dokter Spesialis Anak atau Ahli Gizi kami sekarang.</p>
+<button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">chat</span>
+                        Chat Sekarang
+                    </button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[120px] opacity-10 rotate-12">medical_services</span>
+</div>
+</section>
+<!-- Educational List -->
+<section>
+<h3 class="text-sm font-bold uppercase tracking-widest text-neutral-muted mb-4">Tips Minggu Ini</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="size-2 rounded-full bg-primary mt-1.5"></div>
+<p class="text-sm leading-relaxed"><span class="font-bold">Pentingnya Protein Hewani:</span> Cegah stunting dengan rutin memberikan telur atau ikan setiap hari.</p>
+</li>
+<li class="flex items-start gap-3">
+<div class="size-2 rounded-full bg-success mt-1.5"></div>
+<p class="text-sm leading-relaxed"><span class="font-bold">Jadwal Tidur:</span> Pastikan si kecil tidur 12-14 jam sehari untuk hormon pertumbuhan optimal.</p>
+</li>
+</ul>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-primary/10 px-6 pb-6 pt-3">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">home</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Status</span>
+</a>
+<div class="relative -top-6">
+<button class="size-14 bg-primary text-white rounded-full shadow-lg shadow-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="text-[10px] font-medium">Menu</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-neutral-muted" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-[10px] font-medium">Pesan</span>
+</a>
+</div>
+</nav>
+</body></html>
+
+<!-- Dashboard Orang Tua (Minimalist V1) -->
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Pencegahan Stunting - Bunda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b0f0",
+                        "accent-green": "#27ae60",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f1e23",
+                        "neutral-dark": "#1a1a1a",
+                        "neutral-muted": "#5e808d",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-slate-100 font-display min-h-screen pb-24">
+<!-- Header Section -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 border-b border-primary/10">
+<div class="max-w-md mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full overflow-hidden border-2 border-primary/20 bg-white" data-alt="Foto profil pengguna wanita berhijab">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuzlRoUlPML0oRNgOZyL9gYxP2bFoQK6mKpW_B8Ng2KFxzTlKaXdsqFnBJ1c0jpDKbq30FlTW8NYVhnsaA0-czDU48wpxYYu72GZiTKKJ68mvmLmSNaO5mMEMqvSUHSkjAvSWZ0L7Bvfq537bihmUXlqCr9u_BbsFaqnUdUhj4zHf6yrxd8O-tZO-pa5DihpOmakI_d7PpaQbYbaTY46O-4vhXsLzPCO88oUjkaRJCFWDE_wsDPsFo4BxxaYeagrIQe_kkCasWOw"/>
+</div>
+<div>
+<p class="text-xs text-neutral-muted dark:text-slate-400">Selamat pagi,</p>
+<h2 class="text-lg font-bold leading-tight">Bunda Amira</h2>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-primary/10 text-neutral-dark dark:text-slate-100 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 py-6 space-y-6">
+<!-- Summary Growth Card -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-sm font-bold uppercase tracking-wider text-neutral-muted">Status Tumbuh Kembang</h3>
+<span class="text-xs font-medium text-primary">Detail Anak →</span>
+</div>
+<div class="bg-white dark:bg-slate-800 border border-primary/10 rounded-xl p-5 shadow-sm">
+<div class="flex gap-4 items-center mb-4">
+<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">child_care</span>
+</div>
+<div>
+<h4 class="text-xl font-bold">Rafa (2 Thn 3 Bln)</h4>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center rounded-full bg-accent-green/10 px-2 py-0.5 text-xs font-medium text-accent-green">
+                                Gizi Baik
+                            </span>
+<span class="text-xs text-neutral-muted">Terakhir: 12 Des 2023</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-primary/5 pt-4">
+<div class="space-y-1">
+<p class="text-xs text-neutral-muted uppercase">Berat Badan</p>
+<p class="text-lg font-semibold">12.5 <span class="text-xs font-normal">kg</span></p>
+</div>
+<div class="space-y-1 border-l border-primary/5 pl-4">
+<p class="text-xs text-neutral-muted uppercase">Tinggi Badan</p>
+<p class="text-lg font-semibold">88 <span class="text-xs font-normal">cm</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Nutrition Recommendations -->
+<section>
+<h3 class="text-sm font-bold uppercase tracking-wider text-neutral-muted mb-3">Rekomendasi Nutrisi</h3>
+<div class="space-y-3">
+<div class="bg-white dark:bg-slate-800 border border-primary/10 rounded-xl p-4 flex gap-4 items-start shadow-sm">
+<div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-500">
+<span class="material-symbols-outlined">egg_alt</span>
+</div>
+<div class="flex-1">
+<h5 class="font-bold text-sm">Protein Hewani</h5>
+<p class="text-xs text-neutral-muted leading-relaxed">Berikan 1 butir telur atau 50g daging ayam per porsi makan untuk dukung pertumbuhan otot.</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 border border-primary/10 rounded-xl p-4 flex gap-4 items-start shadow-sm">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-500">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div class="flex-1">
+<h5 class="font-bold text-sm">Hidrasi &amp; Susu</h5>
+<p class="text-xs text-neutral-muted leading-relaxed">Pastikan asupan cairan 1.2 liter per hari termasuk susu pertumbuhan pagi dan malam.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Immunization Schedule -->
+<section>
+<h3 class="text-sm font-bold uppercase tracking-wider text-neutral-muted mb-3">Jadwal Imunisasi</h3>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-5 relative overflow-hidden">
+<!-- Background decoration -->
+<div class="absolute -right-4 -top-4 text-primary/5">
+<span class="material-symbols-outlined text-8xl">vaccines</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs font-bold text-primary uppercase">Mendatang</p>
+<h4 class="text-lg font-bold">DPT-HB-Hib Lanjutan</h4>
+</div>
+<div class="bg-white dark:bg-slate-800 px-3 py-1 rounded-lg shadow-sm text-center">
+<p class="text-[10px] text-neutral-muted leading-none">JAN</p>
+<p class="text-lg font-bold leading-tight">15</p>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-sm text-neutral-muted">location_on</span>
+<p class="text-xs text-neutral-muted">Puskesmas Melati, 08:00 WIB</p>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2.5 rounded-lg text-sm shadow-md shadow-primary/20 hover:bg-primary/90 transition-all">
+                        Ingatkan Saya
+                    </button>
+</div>
+</div>
+</section>
+<!-- Health Article / Tips -->
+<section>
+<h3 class="text-sm font-bold uppercase tracking-wider text-neutral-muted mb-3">Tips Bunda Minggu Ini</h3>
+<div class="bg-white dark:bg-slate-800 border border-primary/10 rounded-xl overflow-hidden shadow-sm group cursor-pointer">
+<div class="h-40 bg-center bg-cover" data-alt="Tangan ibu memegang tangan bayi dengan lembut" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaA69G0j4WRGl-vigJGXPpPz_rFDggt98MSGvdJV-R1TJF58TVOZNzUlEuf9ucexlJNjak8xO_s_VPXfB2i2LzfTibZQR0eB96YfujwHxola4rQ0YHTG8RZTzylT9FTa1NS31fetHODhMf3URNwfe4qnDGquC14LeTjrVXRG6NfWbFPJahksph7TkA6nUOr-gyRxmzHap9OggDf-qlpn0Qcj-p31OYydJjCxbmlUoCtrkgIOrguu4RnWi1DRJLwsHUKCcBvDlbBw");'></div>
+<div class="p-4">
+<h4 class="font-bold text-base group-hover:text-primary transition-colors">Pentingnya Stimulasi Motorik Halus pada Balita</h4>
+<p class="text-xs text-neutral-muted mt-1 line-clamp-2">Mengajak anak bermain menyusun balok atau mewarnai dapat meningkatkan kecerdasan kognitif...</p>
+<div class="mt-3 flex items-center gap-2">
+<span class="text-[10px] font-bold text-accent-green uppercase tracking-widest">Edukasi</span>
+<span class="text-[10px] text-neutral-muted">• 5 min baca</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-t border-primary/10 pb-safe shadow-2xl z-20">
+<div class="max-w-md mx-auto flex h-16 items-center">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">house</span>
+<span class="text-[10px] font-bold">Beranda</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-neutral-muted dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Grafik</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-neutral-muted dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-medium">Nutrisi</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-neutral-muted dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profil</span>
+</a>
+</div>
+</nav>
+</body></html>
+
+<!-- Dashboard Orang Tua (Minimalist V3) -->
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b0f0",
+                        "accent-green": "#078836",
+                        "dark-brown": "#2d2a26",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f1e23",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-dark-brown dark:text-slate-100 font-display">
+<div class="max-w-md mx-auto min-h-screen flex flex-col pb-24">
+<!-- Header -->
+<header class="flex items-center bg-white dark:bg-slate-900 p-6 pb-4 justify-between sticky top-0 z-10">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 border-2 border-primary/20" data-alt="Portrait of a smiling mother with her child" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDi76_buD1gv1mMEojdtIIk1SDBk5PfbeEAo0GZoIx9u9-zBHXYvAVGiYXQe_dR8ySXaIq7YNTYnN_LiYXIbuMldSD7FL2c0yWKXJD_0YSXfC7be3SYQd788LjEliV7a4chUin5QdufW8PZk8sc-JeeYzhHjWIXwcQialEan0qxah_4jwVa5rY8Jl76_ppK3oCUZGRh-xOH7qzk51QOXcWHk1ofo-dmbFKYSfXay1laNXEUacOJkkQQrSIMZq4Ppxzz9bCfgr5Klg");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-accent-green rounded-full border-2 border-white"></div>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium">Selamat Pagi,</p>
+<h2 class="text-dark-brown dark:text-white text-lg font-bold leading-tight">Bunda Maria</h2>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-dark-brown dark:text-white">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 px-4 py-2 space-y-6">
+<!-- Quick Reminders Section -->
+<div class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center gap-4">
+<div class="size-12 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">event_upcoming</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-semibold text-primary uppercase tracking-wider">Pengingat Penting</p>
+<p class="text-sm font-bold text-dark-brown dark:text-slate-200">Jadwal Imunisasi Campak</p>
+<p class="text-xs text-slate-600 dark:text-slate-400">Besok, 09:00 @ Puskesmas Melati</p>
+</div>
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</div>
+<!-- Growth Cards -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl soft-shadow border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start mb-2">
+<p class="text-slate-500 text-sm font-medium">Tinggi Badan</p>
+<span class="material-symbols-outlined text-primary text-sm">straighten</span>
+</div>
+<p class="text-dark-brown dark:text-white text-2xl font-bold leading-none">75.5 <span class="text-sm font-normal text-slate-400">cm</span></p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-accent-green text-sm">trending_up</span>
+<p class="text-accent-green text-xs font-bold">+1.2% bulan ini</p>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl soft-shadow border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start mb-2">
+<p class="text-slate-500 text-sm font-medium">Berat Badan</p>
+<span class="material-symbols-outlined text-primary text-sm">monitor_weight</span>
+</div>
+<p class="text-dark-brown dark:text-white text-2xl font-bold leading-none">9.2 <span class="text-sm font-normal text-slate-400">kg</span></p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-accent-green text-sm">trending_up</span>
+<p class="text-accent-green text-xs font-bold">+0.5% bulan ini</p>
+</div>
+</div>
+</div>
+<!-- Main Growth Chart -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl soft-shadow border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-dark-brown dark:text-white text-base font-bold">Grafik Pertumbuhan</h3>
+<p class="text-slate-500 text-xs">Status: <span class="text-accent-green font-bold uppercase">Sesuai Usia</span></p>
+</div>
+<button class="text-primary text-xs font-bold flex items-center gap-1">
+                        Detail <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<div class="relative h-48 w-full mt-4">
+<!-- Simple SVG Graph Implementation -->
+<svg class="w-full h-full" viewbox="0 0 400 150">
+<!-- Background Grid Lines -->
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="400" y1="30" y2="30"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="400" y1="60" y2="60"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="400" y1="90" y2="90"></line>
+<line stroke="#f1f5f9" stroke-width="1" x1="0" x2="400" y1="120" y2="120"></line>
+<!-- Reference Growth Area (Light Green) -->
+<path d="M0,120 Q100,100 200,60 T400,20 L400,150 L0,150 Z" fill="rgba(7, 136, 54, 0.05)"></path>
+<!-- Main Growth Line -->
+<path d="M0,130 C50,125 100,110 150,95 C200,80 250,55 300,45 C350,35 400,30 400,30" fill="none" stroke="#00b0f0" stroke-linecap="round" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="150" cy="95" fill="#00b0f0" r="4"></circle>
+<circle cx="300" cy="45" fill="#00b0f0" r="4"></circle>
+<circle cx="400" cy="30" fill="#00b0f0" r="6" stroke="white" stroke-width="2"></circle>
+</svg>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+<span>Lahir</span>
+<span>3 Bln</span>
+<span>6 Bln</span>
+<span>9 Bln</span>
+<span>12 Bln</span>
+</div>
+</div>
+</div>
+<!-- Key Health Services (Grid) -->
+<div>
+<h3 class="text-dark-brown dark:text-white text-base font-bold mb-4 px-1">Layanan Kesehatan</h3>
+<div class="grid grid-cols-3 gap-4">
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-2xl bg-white dark:bg-slate-900 soft-shadow border border-slate-100 dark:border-slate-800 flex items-center justify-center text-primary group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Buku KIA</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-2xl bg-white dark:bg-slate-900 soft-shadow border border-slate-100 dark:border-slate-800 flex items-center justify-center text-accent-green group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Resep MPASI</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="size-14 rounded-2xl bg-white dark:bg-slate-900 soft-shadow border border-slate-100 dark:border-slate-800 flex items-center justify-center text-orange-400 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Konsultasi</span>
+</button>
+</div>
+</div>
+<!-- Health Articles Section -->
+<div class="pb-4">
+<div class="flex justify-between items-center mb-4 px-1">
+<h3 class="text-dark-brown dark:text-white text-base font-bold">Tips Pencegahan Stunting</h3>
+<button class="text-primary text-xs font-bold">Lihat Semua</button>
+</div>
+<div class="space-y-4">
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl soft-shadow border border-slate-100 dark:border-slate-800 flex gap-4">
+<div class="size-20 rounded-lg bg-cover bg-center shrink-0" data-alt="Healthy organic vegetables and fruits on a table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCi3Xr7ns5IkST5uvZoLxFrM7iAHHznImxqGv8XHN4-yN0HzxgLXctNKB__wT9xYVkqO3sxL2Q1NuGYexw1ZQPAqR_N0JYlDl3NawTbK24AWWLuplAezEXMB0fX0DsBUaZ9B0Qrlqdhc612crQXpobKwFiyAC0tNkWjMQdc-2VCNhzs9jB7NNUvB8s06l2Jvisi8o2CML7Z3m9xghM3LgY0bzQdzVH-VtZ3Y2FIHQtPaodfxvkeh8V5NDl6XDgkQHiJ63WSq307Rg");'>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="text-sm font-bold text-dark-brown dark:text-slate-100 leading-tight">Nutrisi Penting di 1000 Hari Pertama Kehidupan</h4>
+<p class="text-xs text-slate-500 mt-1">Oleh Tim Medis Kemenkes</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Beranda</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Laporan</span>
+</a>
+<div class="relative -top-8">
+<button class="size-14 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Edukasi</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profil</span>
+</a>
+</nav>
+</div>
+</body></html>

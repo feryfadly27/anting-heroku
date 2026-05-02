@@ -1,0 +1,192 @@
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #2c2420;
+  font-family: "Public Sans", sans-serif;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.refreshBtn {
+  border: none;
+  background: rgba(0, 176, 240, 0.12);
+  color: #0284c7;
+  font-weight: 700;
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.addBtn {
+  border: none;
+  background: #00b0f0;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 0.9rem 1.4rem;
+}
+
+.formCard {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.formTitle {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.input {
+  min-height: 42px;
+  border: 1px solid #dbe3ec;
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.95rem;
+}
+
+.submitBtn {
+  margin-top: 0.35rem;
+  min-height: 42px;
+  border: none;
+  border-radius: 0.55rem;
+  background: #00b0f0;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.formActions {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cancelBtn {
+  min-height: 40px;
+  border: 1px solid #dbe3ec;
+  border-radius: 0.55rem;
+  background: #fff;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.itemSub {
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
+  color: #64748b;
+}
+
+.itemMeta {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: flex-end;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0284c7;
+}
+
+.editBtn {
+  margin-top: 0.15rem;
+  border: 1px solid #bae6fd;
+  background: #f0f9ff;
+  color: #0369a1;
+  border-radius: 0.45rem;
+  padding: 0.25rem 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.loadingWrap,
+.emptyCard,
+.errorCard {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  margin: 0 auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

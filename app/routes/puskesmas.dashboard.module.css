@@ -1,0 +1,152 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.welcome {
+  margin-bottom: 0;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.35rem;
+  padding: 0.85rem 0.95rem;
+}
+
+.welcomeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.welcomeTitle {
+  font: var(--font-display);
+  font-size: 1.45rem;
+  color: #343a40;
+  margin-bottom: 0.15rem;
+}
+
+.welcomeText {
+  font: var(--font-body);
+  color: #6c757d;
+  max-width: 600px;
+}
+
+.welcomeActions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.buttonIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.35rem;
+}
+
+.tabs {
+  margin-top: 0;
+}
+
+.tabsList {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.35rem;
+  padding: 0.35rem;
+}
+
+.tabTrigger {
+  border-radius: 0.3rem;
+  background: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+}
+
+.tabTrigger[data-state="active"] {
+  background: #007bff;
+  color: #ffffff;
+}
+
+.tabContent {
+  margin-top: 0.75rem;
+}
+
+.filterSection {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.35rem;
+  padding: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.filterIcon {
+  width: 20px;
+  height: 20px;
+  color: #007bff;
+}
+
+.filterLabel {
+  font: var(--font-subheading);
+  color: #343a40;
+  font-size: 0.92rem;
+}
+
+.filterSelect {
+  min-width: 250px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  font: var(--font-body);
+  color: #64748b;
+}
+
+.welcomeActions :global(button) {
+  border-radius: 0.35rem;
+  border-color: #ced4da;
+}
+
+@media (max-width: 1024px) {
+  .welcomeHeader {
+    flex-direction: column;
+  }
+
+  .welcomeActions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--space-4);
+  }
+
+  .welcomeTitle {
+    font-size: 1.5rem;
+  }
+
+  .filterGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .welcomeActions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,5 @@
+# Salin ke root aplikasi sebagai file bernama `Procfile` (tanpa ekstensi).
+# Di repo ini file aktual: Procfile di folder yang sama dengan package.json.
+
+release: npx prisma migrate deploy
+web: npm start

@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+.page {
+  font-size: 1.2em;
+  font-family: 'Public Sans', sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  color: #2C2420;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+}
+
+.backButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0.2rem 0 0;
+  color: #64748b;
+  font-size: clamp(0.85rem, 2vw, 0.98rem);
+}
+
+.main {
+  width: 100%;
+  max-width: min(42rem, 100%);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.06rem;
+  font-weight: 700;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.statItem {
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+}
+
+.statLabel {
+  display: block;
+  color: #64748b;
+  font-size: 0.84rem;
+}
+
+.statValue {
+  display: block;
+  font-size: 1.26rem;
+  font-weight: 700;
+}
+
+.detailList p {
+  margin: 0.2rem 0;
+  font-size: 0.96rem;
+}
+
+.reminderBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.reminderDanger {
+  composes: reminderBadge;
+  background: rgba(220, 38, 38, 0.14);
+  color: #b91c1c;
+}
+
+.reminderWarning {
+  composes: reminderBadge;
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+
+.reminderInfo {
+  composes: reminderBadge;
+  background: rgba(59, 130, 246, 0.14);
+  color: #1d4ed8;
+}
+
+.muted {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.96rem;
+}
+
+.alertList {
+  margin: 0;
+  padding-left: 1rem;
+  color: #b91c1c;
+  font-size: 0.94rem;
+}
+
+.historyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.historyControls {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.filterSelect {
+  min-height: 40px;
+  border-radius: 0.5rem;
+  border: 1px solid #dbe3ec;
+  background: #fff;
+  color: #334155;
+  font-size: 0.92rem;
+  padding: 0.5rem 0.6rem;
+}
+
+.historyItem {
+  background: #f8fafc;
+  border: 1px solid #eef2f7;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.7rem;
+}
+
+.historyTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.historyMeta {
+  margin: 0.15rem 0 0;
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.linkBtn {
+  margin-top: 0.6rem;
+  border: none;
+  background: transparent;
+  color: #0284c7;
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+}
+
+.actionRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 70;
+  animation: fadeInBackdrop 180ms ease-out;
+}
+
+.modalCard {
+  width: min(42rem, 100%);
+  background: #fff;
+  border-radius: 0.85rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem;
+  max-height: 85vh;
+  overflow: auto;
+  animation: slideUpModal 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom center;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.modalClose {
+  border: 1px solid #dbe3ec;
+  background: #fff;
+  color: #334155;
+  border-radius: 0.5rem;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.formInput {
+  min-height: 42px;
+  border-radius: 0.5rem;
+  border: 1px solid #dbe3ec;
+  background: #fff;
+  color: #334155;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.65rem;
+}
+
+.modalActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin-top: 0.45rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  min-height: 44px;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.96rem;
+}
+
+.primaryBtn {
+  background: #00b0f0;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  background: #fff;
+  color: #334155;
+  border: 1px solid #dbe3ec;
+}
+
+.loadingPage {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: 3px solid #f1f5f9;
+  border-top-color: #00b0f0;
+  animation: spin 0.8s linear infinite;
+}
+
+@media (max-width: 380px) {
+  .statGrid,
+  .actionRow,
+  .modalActions {
+    grid-template-columns: 1fr;
+  }
+
+  .filterRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpModal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modalBackdrop,
+  .modalCard {
+    animation: none;
+  }
+}

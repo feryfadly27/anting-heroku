@@ -1,0 +1,132 @@
+.page {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.headerCard,
+.card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.35rem;
+  padding: 0.85rem;
+}
+
+.headerCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.headerLeft {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #343a40;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.backIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.identityGrid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.itemLabel {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.itemValue {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.tabsList {
+  margin-bottom: 0.6rem;
+}
+
+.tabContent {
+  margin-top: 0.3rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 880px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.5rem;
+  font-size: 0.84rem;
+  color: #334155;
+  vertical-align: top;
+}
+
+.table thead {
+  background: #f8f9fa;
+}
+
+.emptyText {
+  margin: 0;
+  color: #64748b;
+  padding: 0.8rem 0.2rem;
+}
+
+.zscoreCell {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.zscoreLine {
+  display: grid;
+  grid-template-columns: 2.5rem 3.2rem 1fr;
+  gap: 0.35rem;
+  align-items: baseline;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.zscoreLabel {
+  font-weight: 700;
+  color: #475569;
+}
+
+.zscoreValue {
+  font-weight: 700;
+  color: #1e293b;
+  font-variant-numeric: tabular-nums;
+}
+
+.zscoreDesc {
+  color: #64748b;
+  font-weight: 600;
+}

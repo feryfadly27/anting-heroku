@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+.page {
+  font-family: "Public Sans", sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.icon {
+  font-family: "Material Symbols Outlined";
+  font-size: 1.25rem;
+  line-height: 1;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.85rem 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #2c2420;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.96rem;
+  color: #64748b;
+}
+
+.main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0.85rem;
+}
+
+.searchWrap {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem 0.65rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.65rem;
+  font-size: 1.04rem;
+  background: #fff;
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.filterBtn {
+  padding: 0.4rem 0.75rem;
+  min-height: 36px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.filterBtnActive {
+  composes: filterBtn;
+  background: #00b0f0;
+  border-color: #00b0f0;
+  color: #fff;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  border-left: 4px solid #28a745;
+}
+
+.card[data-attention="1"] {
+  border-left-color: #dc3545;
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardName {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #2c2420;
+}
+
+.cardParent {
+  margin: 0.2rem 0 0;
+  font-size: 0.94rem;
+  color: #64748b;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.badgeNormal {
+  composes: badge;
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+}
+
+.badgeWarn {
+  composes: badge;
+  background: rgba(220, 53, 69, 0.12);
+  color: #dc3545;
+}
+
+.badgeDanger {
+  composes: badge;
+  background: rgba(239, 68, 68, 0.16);
+  color: #b91c1c;
+}
+
+.badgeNone {
+  composes: badge;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.65rem;
+}
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.65rem;
+  text-decoration: none;
+  color: #00b0f0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.reminderWrap {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 0.55rem;
+  padding: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.reminderHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.reminderTitle {
+  font-size: 0.9rem;
+  color: #334155;
+  font-weight: 700;
+}
+
+.reminderMuted {
+  font-size: 0.84rem;
+  color: #64748b;
+}
+
+.reminderBadge {
+  padding: 0.12rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.reminderBadgeOverdue {
+  composes: reminderBadge;
+  background: rgba(239, 68, 68, 0.16);
+  color: #b91c1c;
+}
+
+.reminderBadgeToday {
+  composes: reminderBadge;
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+
+.reminderBadgeUpcoming {
+  composes: reminderBadge;
+  background: rgba(59, 130, 246, 0.14);
+  color: #1d4ed8;
+}
+
+.reminderRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.35rem;
+}
+
+.reminderInput {
+  min-height: 40px;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.95rem;
+}
+
+.reminderBtn {
+  min-height: 40px;
+  border: none;
+  border-radius: 0.5rem;
+  background: #00b0f0;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 0.6rem;
+}
+
+.reminderBtnGhost {
+  min-height: 40px;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 0.6rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.actionPrimary {
+  composes: actionBtn;
+  background: #00b0f0;
+  color: #fff;
+}
+
+.actionPrimary .icon {
+  color: #fff;
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.actionSecondary {
+  composes: actionBtn;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #64748b;
+  font-size: 1.04rem;
+}
+
+.loadingWrap {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #eef2f7;
+}
+
+.retryBtn {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #00b0f0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}

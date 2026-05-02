@@ -1,0 +1,14 @@
+.page { display:grid; gap:.85rem; }
+.headerCard,.formCard,.tableCard{background:#fff;border:1px solid #dee2e6;border-radius:.35rem;padding:.85rem}
+.headerCard{display:flex;justify-content:space-between;align-items:center}
+.headerActions{display:flex;gap:.45rem}
+.title{margin:0;font-size:1.2rem;color:#343a40}
+.btnIcon{width:14px;height:14px;margin-right:.35rem}
+.formCard{display:grid;gap:.5rem}
+.formTitle{margin:0;font-size:1rem;color:#334155}
+.input{min-height:40px;border:1px solid #dbe3ec;border-radius:.35rem;padding:.45rem .6rem}
+.formActions{display:flex;gap:.5rem;flex-wrap:wrap}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:.5rem;border-bottom:1px solid #eef2f7;text-align:left}
+.table thead{background:#f8f9fa}
+.emptyText{margin:0;text-align:center;color:#64748b;padding:1rem}

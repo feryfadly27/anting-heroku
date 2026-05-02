@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+.page {
+  font-family: "Public Sans", sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.icon {
+  font-family: "Material Symbols Outlined";
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.85rem 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.96rem;
+  color: #64748b;
+}
+
+.main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0.85rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.period {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.badge {
+  font-size: 0.83rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.3rem;
+  background: rgba(0, 176, 240, 0.12);
+  color: #00b0f0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.label {
+  color: #64748b;
+}
+
+.val {
+  font-weight: 700;
+  color: #2c2420;
+}
+
+.valWarn {
+  composes: val;
+  color: #dc3545;
+}
+
+.valOk {
+  composes: val;
+  color: #28a745;
+}
+
+.detail {
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 0.89rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 1.04rem;
+}
+
+.loadingWrap {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.retryBtn {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #00b0f0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}

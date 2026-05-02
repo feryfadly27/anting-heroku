@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+.page {
+  font-family: "Public Sans", sans-serif;
+  background: #f8f9fa;
+  color: #2c2420;
+  min-height: 100vh;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.icon {
+  font-family: "Material Symbols Outlined";
+  font-size: 1.5rem;
+  line-height: 1;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.iconFilled {
+  composes: icon;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  padding: 0.85rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.headerAvatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(0, 176, 240, 0.12);
+  color: #00b0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerName {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+}
+
+.headerSub {
+  margin: 0.15rem 0 0;
+  font-size: 0.96rem;
+  color: #64748b;
+}
+
+.headerBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  border: none;
+  border-radius: 0.5rem;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem 0.9rem;
+}
+
+.welcome {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.welcomeTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.welcomeText {
+  margin: 0;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.statCard {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.statCardAlert {
+  border-color: rgba(220, 53, 69, 0.35);
+  background: rgba(220, 53, 69, 0.04);
+}
+
+.statIconWrap {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 176, 240, 0.1);
+  color: #00b0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIconWrap[data-tone="warn"] {
+  background: rgba(220, 53, 69, 0.12);
+  color: #dc3545;
+}
+
+.statIconWrap[data-tone="ok"] {
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.86rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 1.42rem;
+  font-weight: 700;
+}
+
+.quickLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.quickLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem;
+  min-height: 48px;
+  background: rgba(0, 176, 240, 0.08);
+  color: #00b0f0;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(0, 176, 240, 0.2);
+}
+
+.loadingPage {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.spinner {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorCard {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.retryBtn {
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #00b0f0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}

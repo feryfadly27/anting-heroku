@@ -1,0 +1,429 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+.page {
+  font-family: "Public Sans", sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.icon {
+  font-family: "Material Symbols Outlined";
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0.2rem 0 0;
+  color: #64748b;
+  font-size: 0.94rem;
+}
+
+.main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+}
+
+.profileHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.badgeNormal {
+  composes: badge;
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+}
+
+.badgeWarn {
+  composes: badge;
+  background: rgba(220, 53, 69, 0.12);
+  color: #dc3545;
+}
+
+.badgeNone {
+  composes: badge;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  font-size: 0.97rem;
+  color: #334155;
+}
+
+.nutriGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+}
+
+.nutriLabel {
+  font-size: 0.89rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.nutriBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.18rem 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nutriBadge_normal {
+  composes: nutriBadge;
+  background: rgba(40, 167, 69, 0.12);
+  color: #28a745;
+}
+
+.nutriBadge_warning {
+  composes: nutriBadge;
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+
+.nutriBadge_danger {
+  composes: nutriBadge;
+  background: rgba(220, 53, 69, 0.14);
+  color: #dc3545;
+}
+
+.nutriBadge_none {
+  composes: nutriBadge;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.actionRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.actionBtn {
+  min-height: 46px;
+  border: none;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  padding: 0.35rem 0.55rem;
+  background: #00b0f0;
+  color: #fff;
+}
+
+.actionBtnWide {
+  grid-column: 1 / -1;
+}
+
+.sectionTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.profileItem {
+  border: 1px solid #eef2f7;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.6rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.profileItemWide {
+  composes: profileItem;
+  grid-column: 1 / -1;
+}
+
+.profileLabel {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.profileValue {
+  font-size: 0.94rem;
+  color: #0f172a;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item {
+  border: 1px solid #eef2f7;
+  border-radius: 0.55rem;
+  padding: 0.6rem;
+  background: #fff;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.itemDate {
+  margin: 0;
+  font-size: 0.94rem;
+  color: #64748b;
+}
+
+.itemStrong {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.muted {
+  margin: 0;
+  font-size: 0.93rem;
+  color: #64748b;
+}
+
+.empty {
+  text-align: center;
+  padding: 1rem;
+  color: #64748b;
+  font-size: 1.03rem;
+}
+
+.loadingWrap {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  animation: spin 0.8s linear infinite;
+}
+
+.errorCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 1px solid #eef2f7;
+  padding: 1rem;
+  text-align: center;
+}
+
+.retryBtn {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #00b0f0;
+  color: #fff;
+  font-weight: 700;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 80;
+  padding: 0.85rem;
+}
+
+.modalCard {
+  width: 100%;
+  max-width: 32rem;
+  background: #fff;
+  border-radius: 0.9rem;
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.modalClose {
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.modalForm {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.formLabel {
+  font-size: 1.08rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.formInput {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  padding: 0.7rem 0.8rem;
+  font-size: 1.08rem;
+}
+
+.formInput::placeholder {
+  font-size: 1.03rem;
+}
+
+.jenisRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.jenisBtn {
+  min-height: 46px;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  font-size: 1.02rem;
+  font-weight: 700;
+  padding: 0.5rem 0.35rem;
+  text-align: center;
+}
+
+.jenisBtnActive {
+  composes: jenisBtn;
+  border-color: #00b0f0;
+  background: rgba(0, 176, 240, 0.12);
+  color: #0369a1;
+}
+
+.modalActions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.secondaryBtn {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  border-radius: 0.5rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.primaryBtn {
+  border: none;
+  background: #00b0f0;
+  color: #fff;
+  border-radius: 0.5rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

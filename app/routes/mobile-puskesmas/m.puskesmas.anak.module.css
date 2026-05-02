@@ -1,0 +1,190 @@
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  color: #2c2420;
+  font-family: "Public Sans", sans-serif;
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+  padding: 0.85rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.refreshBtn {
+  border: none;
+  background: rgba(0, 176, 240, 0.12);
+  color: #0284c7;
+  font-weight: 700;
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 0.9rem 1.4rem;
+}
+
+.searchInput {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.65rem;
+  padding: 0.72rem 0.85rem;
+  font-size: 0.92rem;
+  margin-bottom: 0.7rem;
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.filterBtn {
+  min-height: 34px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  background: #fff;
+  color: #475569;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.filterBtnActive {
+  composes: filterBtn;
+  border-color: #00b0f0;
+  background: rgba(0, 176, 240, 0.12);
+  color: #0369a1;
+}
+
+.filterWarning {
+  composes: filterBtn;
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+.filterDanger {
+  composes: filterBtn;
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.itemBadges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  align-items: flex-end;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.badge {
+  background: rgba(0, 176, 240, 0.1);
+  color: #0284c7;
+  border: 1px solid rgba(0, 176, 240, 0.25);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.badgeSuccess {
+  composes: badge;
+  background: rgba(34, 197, 94, 0.13);
+  color: #15803d;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.badgeWarning {
+  composes: badge;
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badgeDanger {
+  composes: badge;
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.itemSub {
+  margin: 0.25rem 0 0;
+  color: #475569;
+  font-size: 0.84rem;
+}
+
+.itemMeta {
+  margin: 0.18rem 0 0;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.loadingWrap,
+.emptyCard,
+.errorCard {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.spinner {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #00b0f0;
+  margin: 0 auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

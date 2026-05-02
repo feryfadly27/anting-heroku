@@ -1,0 +1,215 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  orang_tua
+  kader
+  puskesmas
+}
+
+enum TipeWilayah {
+  desa
+  kelurahan
+  puskesmas
+}
+
+enum JenisKelamin {
+  laki_laki
+  perempuan
+}
+
+enum JenisIntervensiGizi {
+  PKMK
+  VITAMIN
+  ZINC
+}
+
+model Wilayah {
+  id           String      @id @default(uuid())
+  nama_wilayah String      @db.VarChar(255)
+  tipe         TipeWilayah
+  users        User[]
+  informasi    Informasi[]
+
+  @@map("wilayah")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  name       String   @db.VarChar(255)
+  email      String   @unique @db.VarChar(255)
+  password   String   @db.VarChar(255)
+  role       Role
+  wilayah_id String?
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  
+  wilayah    Wilayah? @relation(fields: [wilayah_id], references: [id])
+  anak       Anak[]
+  profil_ibu ProfilIbu?
+  kunjungan_reminder_created KunjunganReminder[]
+  informasi_created Informasi[]
+
+  @@map("users")
+}
+
+model Informasi {
+  id                 String   @id @default(uuid())
+  judul              String   @db.VarChar(180)
+  kategori           String   @db.VarChar(30)
+  konten             String   @db.Text
+  gambar_data_url    String?  @db.Text
+  tanggal_kegiatan   DateTime? @db.Date
+  lokasi             String?  @db.VarChar(180)
+  wilayah_id         String?
+  created_by_user_id String
+  created_by_role    Role
+  is_published       Boolean  @default(true)
+  is_pinned          Boolean  @default(false)
+  created_at         DateTime @default(now()) @db.Timestamp(0)
+  updated_at         DateTime @updatedAt @db.Timestamp(0)
+
+  wilayah            Wilayah? @relation(fields: [wilayah_id], references: [id], onDelete: SetNull)
+  created_by_user    User     @relation(fields: [created_by_user_id], references: [id], onDelete: Cascade)
+
+  @@map("informasi")
+}
+
+model ProfilIbu {
+  id               String   @id @default(uuid())
+  user_id          String   @unique
+  nik              String   @unique @db.VarChar(16)
+  alamat           String   @db.Text
+  tanggal_lahir    DateTime @db.Date
+  tinggi_badan_cm  Float
+  berat_badan_kg   Float
+  golongan_darah   String?  @db.VarChar(5)
+  riwayat_penyakit String?  @db.Text
+  created_at       DateTime @default(now()) @db.Timestamp(0)
+  updated_at       DateTime @updatedAt @db.Timestamp(0)
+
+  user             User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("profil_ibu")
+}
+
+model Anak {
+  id            String       @id @default(uuid())
+  user_id       String
+  nama          String       @db.VarChar(255)
+  tanggal_lahir DateTime     @db.Date
+  jenis_kelamin JenisKelamin
+  created_at    DateTime     @default(now()) @db.Timestamp(0)
+
+  user          User         @relation(fields: [user_id], references: [id])
+  pertumbuhan   Pertumbuhan[]
+  imunisasi     Imunisasi[]
+  intervensi_gizi IntervensiGizi[]
+  profil_anak   ProfilAnak?
+  kunjungan_reminder KunjunganReminder?
+
+  @@map("anak")
+}
+
+model KunjunganReminder {
+  id                 String   @id @default(uuid())
+  anak_id            String   @unique
+  tanggal_kunjungan  DateTime @db.Date
+  created_by_kader_id String
+  created_at         DateTime @default(now()) @db.Timestamp(0)
+  updated_at         DateTime @updatedAt @db.Timestamp(0)
+
+  anak               Anak     @relation(fields: [anak_id], references: [id], onDelete: Cascade)
+  created_by_kader   User     @relation(fields: [created_by_kader_id], references: [id], onDelete: Cascade)
+
+  @@map("kunjungan_reminder")
+}
+
+model IntervensiGizi {
+  id            String              @id @default(uuid())
+  anak_id       String
+  tanggal       DateTime            @db.Date
+  jenis         JenisIntervensiGizi
+  produk        String?             @db.VarChar(100)
+  dosis         String?             @db.VarChar(50)
+  catatan       String?             @db.Text
+  created_at    DateTime            @default(now()) @db.Timestamp(0)
+
+  anak          Anak                @relation(fields: [anak_id], references: [id], onDelete: Cascade)
+
+  @@map("intervensi_gizi")
+}
+
+model ProfilAnak {
+  id                  String   @id @default(uuid())
+  anak_id             String   @unique
+  nik_anak            String?  @unique @db.VarChar(16)
+  tempat_lahir        String?  @db.VarChar(100)
+  panjang_lahir_cm    Float?
+  berat_lahir_kg      Float?
+  golongan_darah      String?  @db.VarChar(5)
+  alergi              String?  @db.Text
+  catatan_kesehatan   String?  @db.Text
+  created_at          DateTime @default(now()) @db.Timestamp(0)
+  updated_at          DateTime @updatedAt @db.Timestamp(0)
+
+  anak                Anak     @relation(fields: [anak_id], references: [id], onDelete: Cascade)
+
+  @@map("profil_anak")
+}
+
+model Imunisasi {
+  id         String   @id @default(uuid())
+  anak_id    String
+  tanggal    DateTime @db.Date
+  nama_vaksin String  @db.VarChar(255)
+  keterangan String?  @db.Text
+  created_at DateTime @default(now()) @db.Timestamp(0)
+
+  anak       Anak     @relation(fields: [anak_id], references: [id])
+
+  @@map("imunisasi")
+}
+
+model Pertumbuhan {
+  id                 String   @id @default(uuid())
+  anak_id            String
+  tanggal_pengukuran DateTime @db.Date
+  berat_badan        Float
+  tinggi_badan       Float
+  lila_cm            Float?
+  lingkar_kepala     Float?
+  umur_bulan         Int?
+  zscore_tbu         Float?
+  kategori_tbu       String?  @db.VarChar(50)
+  zscore_bbu         Float?
+  kategori_bbu       String?  @db.VarChar(50)
+  zscore_bbtb        Float?
+  kategori_bbtb      String?  @db.VarChar(50)
+  created_at         DateTime @default(now()) @db.Timestamp(0)
+
+  anak               Anak     @relation(fields: [anak_id], references: [id])
+
+  @@map("pertumbuhan")
+}
+
+model WhoReference {
+  id            String       @id @default(uuid())
+  jenis_kelamin JenisKelamin
+  umur_bulan    Int
+  indikator     String       @db.VarChar(20)
+  tinggi_cm     Float?
+  l             Float
+  m             Float
+  s             Float
+
+  @@map("who_reference")
+}

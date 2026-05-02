@@ -1,0 +1,71 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: 1.125rem;
+  color: var(--color-neutral-11);
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.welcomeTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-neutral-12);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.welcomeText {
+  font-size: 1.125rem;
+  color: var(--color-neutral-11);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.chartsSection,
+.manageSection {
+  margin-top: var(--space-8);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-6);
+  font-weight: 700;
+  color: var(--color-neutral-12);
+  margin-bottom: var(--space-4);
+}
+
+.chartsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.chartTitle {
+  font-size: var(--font-size-5);
+  font-weight: 600;
+  color: var(--color-neutral-12);
+  margin: 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-accent-9);
+}
