@@ -4,6 +4,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import type { Route } from "./+types/m.parent.status";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
+import { brandPageTitle } from "~/config/branding.display";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
 import styles from "./m.parent.status.module.css";
 
@@ -29,8 +30,8 @@ type GrowthTrendPoint = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Status Pertumbuhan - Anting" },
-    { name: "description", content: "Grafik status pertumbuhan anak di Anting" },
+    { title: brandPageTitle("Status Pertumbuhan") },
+    { name: "description", content: "Grafik status pertumbuhan anak di Diari" },
   ];
 }
 

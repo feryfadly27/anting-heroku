@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.puskesmas.kader";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobilePuskesmasNav } from "~/components/mobile-puskesmas-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.puskesmas.kader.module.css";
 
 type KaderItem = {
@@ -41,7 +42,7 @@ const puskesmasApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Kader - Puskesmas Anting" },
+    { title: brandPageTitle("Kader - Puskesmas") },
     { name: "description", content: "Daftar kader posyandu pada puskesmas" },
   ];
 }

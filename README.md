@@ -46,6 +46,10 @@ Create a production build:
 npm run build
 ```
 
+## Dokumentasi pengguna (Diari)
+
+Manual operasional: alur sistem (beranda, daftar, masuk), ringkasan peran orang tua/kader, dan panduan lengkap **tingkat Puskesmas** (desktop & mobile): [docs/MANUAL_PENGGUNA.md](docs/MANUAL_PENGGUNA.md).
+
 ## Deployment
 
 ### DIY Deployment

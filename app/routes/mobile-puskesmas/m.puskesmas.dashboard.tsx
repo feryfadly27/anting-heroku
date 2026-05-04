@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.puskesmas.dashboard";
 import { getCurrentUser, logout } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobilePuskesmasNav } from "~/components/mobile-puskesmas-nav";
+import { BRAND_TAGLINE, brandPageTitle } from "~/config/branding.display";
 import styles from "./m.puskesmas.dashboard.module.css";
 
 type PuskesmasStats = {
@@ -67,8 +68,8 @@ const puskesmasApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Beranda Puskesmas - Anting" },
-    { name: "description", content: "Dashboard mobile untuk puskesmas di Anting" },
+    { title: brandPageTitle("Beranda Puskesmas") },
+    { name: "description", content: "Dashboard mobile Puskesmas di sistem Diari" },
   ];
 }
 
@@ -223,7 +224,7 @@ export default function MobilePuskesmasDashboard() {
         </div>
         <div className={styles.headerInfo}>
           <h1 className={styles.headerName}>Halo, {userName}</h1>
-          <p className={styles.headerSub}>Ringkasan layanan wilayah puskesmas</p>
+          <p className={styles.headerSub}>{BRAND_TAGLINE}</p>
         </div>
         <button type="button" className={styles.headerBtn} onClick={handleLogout} aria-label="Logout">
           <span className={styles.icon}>logout</span>

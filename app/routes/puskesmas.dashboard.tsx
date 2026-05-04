@@ -18,6 +18,7 @@ import {
 } from "~/components/ui/select/select";
 import { exportToCSV, exportToPDF } from "~/utils/export";
 import { getCurrentUser } from "~/utils/auth";
+import { BRAND_TAGLINE, brandPageTitle } from "~/config/branding.display";
 
 // Types (use any to avoid importing Prisma-connected modules)
 type PuskesmasStats = any;
@@ -48,10 +49,10 @@ const puskesmasApi = {
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "Dashboard Puskesmas - Anting" },
+    { title: brandPageTitle("Dashboard Puskesmas") },
     {
       name: "description",
-      content: "Dashboard untuk Puskesmas di Anting",
+      content: "Dashboard untuk Puskesmas di sistem Diari",
     },
   ];
 }
@@ -158,6 +159,7 @@ export default function PuskesmasDashboard() {
           <div className={styles.welcomeHeader}>
             <div>
               <h1 className={styles.welcomeTitle}>Dashboard Puskesmas</h1>
+              <p className={styles.welcomeBrand}>{BRAND_TAGLINE}</p>
               <p className={styles.welcomeText}>
                 Pantau dan kelola data kesehatan balita di seluruh wilayah kerja puskesmas
               </p>

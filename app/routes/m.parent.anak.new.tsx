@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import type { Route } from "./+types/m.parent.anak.new";
+import { brandPageTitle } from "~/config/branding.display";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
@@ -25,8 +26,8 @@ const parentApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Tambah Anak - Anting" },
-    { name: "description", content: "Tambah data anak dari aplikasi mobile Anting" },
+    { title: brandPageTitle("Tambah Anak") },
+    { name: "description", content: "Tambah data anak dari aplikasi mobile Diari" },
   ];
 }
 

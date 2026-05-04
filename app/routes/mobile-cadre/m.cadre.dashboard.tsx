@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.cadre.dashboard";
 import { getCurrentUser, logout } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobileCadreNav } from "~/components/mobile-cadre-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.cadre.dashboard.module.css";
 
 const cadreApi = {
@@ -28,7 +29,7 @@ type CadreStats = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Beranda Kader - Anting" },
+    { title: brandPageTitle("Beranda Kader") },
     { name: "description", content: "Dashboard mobile kader posyandu" },
   ];
 }

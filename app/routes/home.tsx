@@ -5,13 +5,20 @@ import type { Route } from "./+types/home";
 import styles from "./home.module.css";
 import { Button } from "~/components/ui/button/button";
 import { getCurrentUser, getDashboardPath } from "~/utils/auth";
+import {
+  BRAND_DESCRIPTION_LONG,
+  BRAND_DISPLAY_NAME,
+  BRAND_HOME_DOCUMENT_TITLE,
+  BRAND_META_DESCRIPTION_SHORT,
+  BRAND_TAGLINE,
+} from "~/config/branding.display";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Anting - Anak Tanpa Stunting" },
+    { title: BRAND_HOME_DOCUMENT_TITLE },
     {
       name: "description",
-      content: "Anting (Anak Tanpa Stunting) untuk pemantauan tumbuh kembang anak yang terstruktur.",
+      content: BRAND_META_DESCRIPTION_SHORT,
     },
   ];
 }
@@ -35,16 +42,14 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.logo}>
           <Heart className={styles.logoIcon} />
-          <span className={styles.logoText}>Anting</span>
+          <span className={styles.logoText}>{BRAND_DISPLAY_NAME}</span>
         </div>
       </header>
 
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>Anting</h1>
-        <p className={styles.heroTagline}>
-          Akronim dari Anak Tanpa Stunting, membantu orang tua, kader posyandu, dan puskesmas memantau tumbuh kembang
-          anak secara terstruktur.
-        </p>
+        <h1 className={styles.heroTitle}>{BRAND_DISPLAY_NAME}</h1>
+        <p className={styles.heroTagline}>{BRAND_TAGLINE}</p>
+        <p className={styles.heroDescription}>{BRAND_DESCRIPTION_LONG}</p>
         <div className={styles.heroCta}>
           <Button size="lg" className={styles.primaryButton} onClick={() => navigate("/register")}>
             Mulai Sekarang
@@ -57,7 +62,7 @@ export default function Home() {
 
       <section className={styles.overview}>
         <div className={styles.overviewContainer}>
-          <h2 className={styles.overviewTitle}>Manfaat Anting (Anak Tanpa Stunting)</h2>
+          <h2 className={styles.overviewTitle}>Manfaat {BRAND_DISPLAY_NAME}</h2>
           <div className={styles.overviewGrid}>
             <div className={styles.overviewCard}>
               <Heart className={styles.cardIcon} />

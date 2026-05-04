@@ -5,6 +5,7 @@ import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { toIndonesianNutritionAlert, toIndonesianNutritionStatus } from "~/utils/nutrition-status";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.parent.anak.profile.module.css";
 
 const parentApi = {
@@ -30,8 +31,8 @@ const parentApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Profil Anak - Anting" },
-    { name: "description", content: "Profil anak di aplikasi mobile Anting" },
+    { title: brandPageTitle("Profil Anak") },
+    { name: "description", content: "Profil anak di aplikasi mobile Diari" },
   ];
 }
 

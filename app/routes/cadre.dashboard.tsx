@@ -7,6 +7,7 @@ import { DashboardLayout } from "~/components/dashboard-layout";
 import { CadreAnakList } from "~/components/cadre-anak-list";
 import { CadreMonthlyRecap } from "~/components/cadre-monthly-recap";
 import { getCurrentUser } from "~/utils/auth";
+import { brandPageTitle } from "~/config/branding.display";
 
 // Types (replicate from cadre.service to avoid importing Prisma)
 type AnakWithParentInfo = any;
@@ -31,10 +32,10 @@ const cadreApi = {
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "Dashboard Kader Posyandu - Anting" },
+    { title: brandPageTitle("Dashboard Kader Posyandu") },
     {
       name: "description",
-      content: "Dashboard untuk Kader Posyandu di Anting",
+      content: "Dashboard untuk Kader Posyandu di sistem Diari",
     },
   ];
 }

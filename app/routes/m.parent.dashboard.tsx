@@ -6,6 +6,7 @@ import { toast } from "~/hooks/use-toast";
 import { toIndonesianNutritionAlert, toIndonesianNutritionStatus } from "~/utils/nutrition-status";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
 import styles from "./m.parent.dashboard.module.css";
+import { brandPageTitle } from "~/config/branding.display";
 
 const parentApi = {
   fetchWithError: async (url: string, options?: RequestInit) => {
@@ -22,8 +23,8 @@ const parentApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dashboard Mobile - Anting" },
-    { name: "description", content: "Dashboard mobile untuk orang tua di Anting" },
+    { title: brandPageTitle("Dashboard Mobile") },
+    { name: "description", content: "Dashboard mobile untuk orang tua di sistem Diari" },
   ];
 }
 

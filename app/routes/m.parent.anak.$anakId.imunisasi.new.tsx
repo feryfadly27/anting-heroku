@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.parent.anak.$anakId.imunisasi.new";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.parent.anak.form.module.css";
 
 const parentApi = {
@@ -23,7 +24,7 @@ const parentApi = {
 };
 
 export function meta({}: Route.MetaArgs) {
-  return [{ title: "Tambah Imunisasi - Anting" }];
+  return [{ title: brandPageTitle("Tambah Imunisasi") }];
 }
 
 export default function MobileAddImunisasiPage() {

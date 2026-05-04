@@ -18,6 +18,7 @@ type GrowthTrend = any;
 import { toast } from "~/hooks/use-toast";
 import type { Database } from "~/db/types";
 import { getCurrentUser } from "~/utils/auth";
+import { brandPageTitle } from "~/config/branding.display";
 
 // Client-safe API helpers (use fetch instead of direct Prisma imports)
 const parentApi = {
@@ -45,10 +46,10 @@ type ImunisasiRow = Database["public"]["Tables"]["imunisasi"]["Row"];
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "Dashboard Orang Tua - Anting" },
+    { title: brandPageTitle("Dashboard Orang Tua") },
     {
       name: "description",
-      content: "Dashboard untuk orang tua di Anting",
+      content: "Dashboard untuk orang tua di sistem Diari",
     },
   ];
 }

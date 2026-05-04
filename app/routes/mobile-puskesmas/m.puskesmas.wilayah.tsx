@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.puskesmas.wilayah";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobilePuskesmasNav } from "~/components/mobile-puskesmas-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.puskesmas.wilayah.module.css";
 
 type WilayahStats = {
@@ -36,7 +37,7 @@ const puskesmasApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Wilayah - Puskesmas Anting" },
+    { title: brandPageTitle("Wilayah - Puskesmas") },
     { name: "description", content: "Ringkasan wilayah kerja puskesmas" },
   ];
 }

@@ -6,6 +6,7 @@ import { Button } from "./ui/button/button";
 import { getCurrentUser, logout } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import type { User, UserRole } from "~/data/users";
+import { BRAND_DISPLAY_NAME } from "~/config/branding.display";
 
 interface DashboardLayoutProps {
   /**
@@ -97,7 +98,7 @@ export function DashboardLayout({ children, className }: DashboardLayoutProps) {
       <header className={styles.header}>
         <div className={styles.logo}>
           <Heart className={styles.logoIcon} />
-          <span className={styles.logoText}>Anting</span>
+          <span className={styles.logoText}>{BRAND_DISPLAY_NAME}</span>
         </div>
         <div className={styles.headerRight}>
           <div className={styles.userInfo}>

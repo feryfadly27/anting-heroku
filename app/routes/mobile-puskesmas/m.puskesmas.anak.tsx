@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.puskesmas.anak";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobilePuskesmasNav } from "~/components/mobile-puskesmas-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.puskesmas.anak.module.css";
 
 type AnakItem = {
@@ -39,7 +40,7 @@ const puskesmasApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Data Anak - Puskesmas Anting" },
+    { title: brandPageTitle("Data Anak - Puskesmas") },
     { name: "description", content: "Daftar seluruh data anak pada puskesmas" },
   ];
 }

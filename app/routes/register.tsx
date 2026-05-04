@@ -5,13 +5,14 @@ import type { Route } from "./+types/register";
 import styles from "./register.module.css";
 import { register, getCurrentUser, getDashboardPath } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
+import { BRAND_DISPLAY_NAME, brandPageTitle } from "~/config/branding.display";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Daftar - Anting" },
+    { title: brandPageTitle("Daftar") },
     {
       name: "description",
-      content: "Buat akun baru di Anting",
+      content: `Buat akun baru di ${BRAND_DISPLAY_NAME}`,
     },
   ];
 }
@@ -158,7 +159,7 @@ export default function Register() {
       <div className={styles.registerContainer}>
         <div className={styles.logoSection}>
           <Heart className={styles.logoIcon} />
-          <h1 className={styles.title}>Daftar Anting</h1>
+          <h1 className={styles.title}>Daftar {BRAND_DISPLAY_NAME}</h1>
           <p className={styles.subtitle}>Mulai pantau kesehatan bayi Anda</p>
         </div>
 

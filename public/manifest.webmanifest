@@ -1,7 +1,7 @@
 {
-  "name": "Anting (Anak Tanpa Stunting)",
-  "short_name": "Anting",
-  "description": "Sistem monitoring pertumbuhan anak untuk orang tua, kader, dan puskesmas.",
+  "name": "Diari — Data Informasi Anak Responsif & Terintegrasi",
+  "short_name": "Diari",
+  "description": "Sistem informasi kesehatan anak digital: pemantauan tumbuh kembang terintegrasi untuk orang tua, kader, dan puskesmas.",
   "start_url": "/m/parent/dashboard",
   "scope": "/",
   "display": "standalone",

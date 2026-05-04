@@ -5,6 +5,7 @@ import { getCurrentUser } from "~/utils/auth";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
 import { toast } from "~/hooks/use-toast";
 import styles from "./m.parent.anak.module.css";
+import { brandPageTitle } from "~/config/branding.display";
 
 const parentApi = {
   fetchWithError: async (url: string, options?: RequestInit) => {
@@ -20,8 +21,8 @@ const parentApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Daftar Anak - Anting" },
-    { name: "description", content: "Daftar profil anak pada Anting versi mobile" },
+    { title: brandPageTitle("Daftar Anak") },
+    { name: "description", content: "Daftar profil anak pada Diari versi mobile" },
   ];
 }
 

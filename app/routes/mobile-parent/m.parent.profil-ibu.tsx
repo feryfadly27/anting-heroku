@@ -4,6 +4,7 @@ import type { Route } from "./+types/m.parent.profil-ibu";
 import { getCurrentUser } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
 import { MobileParentNav } from "~/components/mobile-parent-nav";
+import { brandPageTitle } from "~/config/branding.display";
 import styles from "./m.parent.profil-ibu.module.css";
 
 type ProfilIbu = {
@@ -37,7 +38,7 @@ const profilIbuApi = {
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Profil Ibu - Anting" },
+    { title: brandPageTitle("Profil Ibu") },
     { name: "description", content: "Lengkapi profil ibu sebelum input data anak." },
   ];
 }

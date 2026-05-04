@@ -83,7 +83,7 @@ export function exportToPDF(data: ExportData): void {
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Laporan Puskesmas - Anting</title>
+      <title>Laporan Puskesmas - Diari</title>
       <style>
         body {
           font-family: Arial, sans-serif;

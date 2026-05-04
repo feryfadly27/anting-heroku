@@ -29,6 +29,16 @@
   margin-bottom: 0.15rem;
 }
 
+.welcomeBrand {
+  font: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #00b0f0;
+  margin: 0.2rem 0 0.35rem;
+  max-width: 42rem;
+  line-height: 1.35;
+}
+
 .welcomeText {
   font: var(--font-body);
   color: #6c757d;

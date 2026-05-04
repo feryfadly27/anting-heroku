@@ -5,13 +5,14 @@ import type { Route } from "./+types/login";
 import styles from "./login.module.css";
 import { login, getCurrentUser, getDashboardPath } from "~/utils/auth";
 import { toast } from "~/hooks/use-toast";
+import { BRAND_DISPLAY_NAME, brandPageTitle } from "~/config/branding.display";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Masuk - Anting" },
+    { title: brandPageTitle("Masuk") },
     {
       name: "description",
-      content: "Masuk ke akun Anting Anda",
+      content: `Masuk ke akun ${BRAND_DISPLAY_NAME} Anda`,
     },
   ];
 }
@@ -95,7 +96,7 @@ export default function Login() {
       <div className={styles.loginContainer}>
         <div className={styles.logoSection}>
           <Heart className={styles.logoIcon} />
-          <h1 className={styles.title}>Masuk ke Anting</h1>
+          <h1 className={styles.title}>Masuk ke {BRAND_DISPLAY_NAME}</h1>
           <p className={styles.subtitle}>Kelola kesehatan bayi dengan mudah</p>
         </div>
 
