@@ -6,6 +6,8 @@ function isValidNik(value: string) {
   return /^\d{16}$/.test(value);
 }
 
+const VALID_BLOOD_TYPES = new Set(["A", "B", "AB", "O", "belum_tahu"]);
+
 export async function loader({ request }: { request: Request }) {
   const user = await getAuthUser(request);
   if (!user || user.role !== "orang_tua") {
@@ -65,6 +67,10 @@ export async function action({ request }: { request: Request }) {
   const beratLahir = beratLahirRaw ? Number(beratLahirRaw) : null;
   if ((panjangLahir !== null && panjangLahir <= 0) || (beratLahir !== null && beratLahir <= 0)) {
     return Response.json({ error: "Panjang/berat lahir harus lebih dari 0." }, { status: 400 });
+  }
+
+  if (golonganDarah && !VALID_BLOOD_TYPES.has(golonganDarah)) {
+    return Response.json({ error: "Golongan darah tidak valid." }, { status: 400 });
   }
 
   try {

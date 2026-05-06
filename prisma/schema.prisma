@@ -88,10 +88,15 @@ model ProfilIbu {
   user_id          String   @unique
   nik              String   @unique @db.VarChar(16)
   alamat           String   @db.Text
+  rt               String?  @db.VarChar(10)
+  rw               String?  @db.VarChar(10)
+  kelurahan        String?  @db.VarChar(120)
+  kecamatan        String?  @db.VarChar(120)
+  kabupaten_kota   String?  @db.VarChar(120)
   tanggal_lahir    DateTime @db.Date
   tinggi_badan_cm  Float
   berat_badan_kg   Float
-  golongan_darah   String?  @db.VarChar(5)
+  golongan_darah   String?  @db.VarChar(20)
   riwayat_penyakit String?  @db.Text
   created_at       DateTime @default(now()) @db.Timestamp(0)
   updated_at       DateTime @updatedAt @db.Timestamp(0)
@@ -155,7 +160,7 @@ model ProfilAnak {
   tempat_lahir        String?  @db.VarChar(100)
   panjang_lahir_cm    Float?
   berat_lahir_kg      Float?
-  golongan_darah      String?  @db.VarChar(5)
+  golongan_darah      String?  @db.VarChar(20)
   alergi              String?  @db.Text
   catatan_kesehatan   String?  @db.Text
   created_at          DateTime @default(now()) @db.Timestamp(0)

@@ -235,6 +235,7 @@ export default function MobileAnakProfilDetailPage() {
               <option value="B">B</option>
               <option value="AB">AB</option>
               <option value="O">O</option>
+              <option value="belum_tahu">Belum tahu</option>
             </select>
           </div>
 

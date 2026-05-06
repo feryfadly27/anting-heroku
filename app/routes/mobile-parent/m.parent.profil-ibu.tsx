@@ -12,6 +12,12 @@ type ProfilIbu = {
   user_id: string;
   nik: string;
   alamat: string;
+  jalan?: string | null;
+  rt?: string | null;
+  rw?: string | null;
+  kelurahan?: string | null;
+  kecamatan?: string | null;
+  kabupaten_kota?: string | null;
   tanggal_lahir: string;
   tinggi_badan_cm: number;
   berat_badan_kg: number;
@@ -50,7 +56,12 @@ export default function MobileParentProfilIbuPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [nik, setNik] = useState("");
-  const [alamat, setAlamat] = useState("");
+  const [jalan, setJalan] = useState("");
+  const [rt, setRt] = useState("");
+  const [rw, setRw] = useState("");
+  const [kelurahan, setKelurahan] = useState("");
+  const [kecamatan, setKecamatan] = useState("");
+  const [kabupatenKota, setKabupatenKota] = useState("");
   const [tanggalLahir, setTanggalLahir] = useState("");
   const [tinggiBadan, setTinggiBadan] = useState("");
   const [beratBadan, setBeratBadan] = useState("");
@@ -73,7 +84,16 @@ export default function MobileParentProfilIbuPage() {
         const profilIbu = res?.profilIbu as ProfilIbu | null;
         if (profilIbu) {
           setNik(profilIbu.nik || "");
-          setAlamat(profilIbu.alamat || "");
+          const legacyAlamat = profilIbu.alamat || "";
+          const jalanCandidate = legacyAlamat.split(",")[0]?.trim() || "";
+          setJalan(profilIbu.jalan || jalanCandidate);
+          const rtMatch = legacyAlamat.match(/RT\s*([0-9A-Za-z]+)/i);
+          const rwMatch = legacyAlamat.match(/RW\s*([0-9A-Za-z]+)/i);
+          setRt(profilIbu.rt || rtMatch?.[1] || "");
+          setRw(profilIbu.rw || rwMatch?.[1] || "");
+          setKelurahan(profilIbu.kelurahan || "");
+          setKecamatan(profilIbu.kecamatan || "");
+          setKabupatenKota(profilIbu.kabupaten_kota || "");
           setTanggalLahir(profilIbu.tanggal_lahir?.slice(0, 10) || "");
           setTinggiBadan(String(profilIbu.tinggi_badan_cm ?? ""));
           setBeratBadan(String(profilIbu.berat_badan_kg ?? ""));
@@ -109,7 +129,7 @@ export default function MobileParentProfilIbuPage() {
       });
       return;
     }
-    if (!alamat.trim() || !tanggalLahir || !tinggiBadan || !beratBadan) {
+    if (!jalan.trim() || !rt.trim() || !rw.trim() || !kelurahan.trim() || !kecamatan.trim() || !kabupatenKota.trim() || !tanggalLahir || !tinggiBadan || !beratBadan) {
       toast({
         title: "Data belum lengkap",
         description: "Lengkapi data wajib Profil Ibu.",
@@ -122,7 +142,12 @@ export default function MobileParentProfilIbuPage() {
       setIsSubmitting(true);
       const formData = new FormData();
       formData.append("nik", nikSanitized);
-      formData.append("alamat", alamat.trim());
+      formData.append("jalan", jalan.trim());
+      formData.append("rt", rt.trim());
+      formData.append("rw", rw.trim());
+      formData.append("kelurahan", kelurahan.trim());
+      formData.append("kecamatan", kecamatan.trim());
+      formData.append("kabupaten_kota", kabupatenKota.trim());
       formData.append("tanggal_lahir", tanggalLahir);
       formData.append("tinggi_badan_cm", tinggiBadan);
       formData.append("berat_badan_kg", beratBadan);
@@ -186,15 +211,86 @@ export default function MobileParentProfilIbuPage() {
           </div>
 
           <div className={styles.formField}>
-            <label className={styles.formLabel} htmlFor="alamat-ibu-mobile">
-              Alamat
+            <label className={styles.formLabel} htmlFor="jalan-ibu-mobile">
+              Jalan
             </label>
-            <textarea
-              id="alamat-ibu-mobile"
-              className={styles.formTextarea}
-              value={alamat}
-              onChange={(e) => setAlamat(e.target.value)}
-              placeholder="Alamat lengkap ibu"
+            <input
+              id="jalan-ibu-mobile"
+              className={styles.formInput}
+              value={jalan}
+              onChange={(e) => setJalan(e.target.value)}
+              placeholder="Contoh: Jl. Melati No. 10"
+              required
+            />
+          </div>
+
+          <div className={styles.formGrid}>
+            <div className={styles.formField}>
+              <label className={styles.formLabel} htmlFor="rt-ibu-mobile">
+                RT
+              </label>
+              <input
+                id="rt-ibu-mobile"
+                className={styles.formInput}
+                value={rt}
+                onChange={(e) => setRt(e.target.value)}
+                placeholder="Contoh: 01"
+                required
+              />
+            </div>
+            <div className={styles.formField}>
+              <label className={styles.formLabel} htmlFor="rw-ibu-mobile">
+                RW
+              </label>
+              <input
+                id="rw-ibu-mobile"
+                className={styles.formInput}
+                value={rw}
+                onChange={(e) => setRw(e.target.value)}
+                placeholder="Contoh: 02"
+                required
+              />
+            </div>
+          </div>
+
+          <div className={styles.formField}>
+            <label className={styles.formLabel} htmlFor="kelurahan-ibu-mobile">
+              Kelurahan
+            </label>
+            <input
+              id="kelurahan-ibu-mobile"
+              className={styles.formInput}
+              value={kelurahan}
+              onChange={(e) => setKelurahan(e.target.value)}
+              placeholder="Kelurahan"
+              required
+            />
+          </div>
+
+          <div className={styles.formField}>
+            <label className={styles.formLabel} htmlFor="kecamatan-ibu-mobile">
+              Kecamatan
+            </label>
+            <input
+              id="kecamatan-ibu-mobile"
+              className={styles.formInput}
+              value={kecamatan}
+              onChange={(e) => setKecamatan(e.target.value)}
+              placeholder="Kecamatan"
+              required
+            />
+          </div>
+
+          <div className={styles.formField}>
+            <label className={styles.formLabel} htmlFor="kabupaten-kota-ibu-mobile">
+              Kabupaten/Kota
+            </label>
+            <input
+              id="kabupaten-kota-ibu-mobile"
+              className={styles.formInput}
+              value={kabupatenKota}
+              onChange={(e) => setKabupatenKota(e.target.value)}
+              placeholder="Kabupaten atau Kota"
               required
             />
           </div>
@@ -228,6 +324,7 @@ export default function MobileParentProfilIbuPage() {
                 <option value="B">B</option>
                 <option value="AB">AB</option>
                 <option value="O">O</option>
+                <option value="belum_tahu">Belum tahu</option>
               </select>
             </div>
           </div>

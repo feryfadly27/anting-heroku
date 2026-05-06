@@ -167,13 +167,13 @@ export async function action({ request }: { request: Request }) {
 
         if (intent === "create-kader") {
             const data = JSON.parse(formData.get("data") as string);
-            const result = await createKader(
+            await createKader(
                 String(data.name || "").trim(),
                 String(data.email || "").trim(),
                 String(data.password || ""),
                 String(data.wilayahId || data.wilayah_id || "")
             );
-            return Response.json(result);
+            return Response.json({ success: true });
         }
         if (intent === "create-wilayah") {
             const data = JSON.parse(formData.get("data") as string);
@@ -198,13 +198,13 @@ export async function action({ request }: { request: Request }) {
             if (!name || !email || !wilayahId) {
                 return Response.json({ error: "Nama, email, dan wilayah wajib diisi." }, { status: 400 });
             }
-            const result = await updateKader(id, {
+            await updateKader(id, {
                 name,
                 email,
                 wilayah_id: wilayahId,
                 password,
             });
-            return Response.json(result);
+            return Response.json({ success: true });
         }
         if (intent === "update-wilayah") {
             const id = String(formData.get("id") || "").trim();

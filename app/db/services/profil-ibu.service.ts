@@ -4,6 +4,11 @@ type UpsertProfilIbuInput = {
   user_id: string;
   nik: string;
   alamat: string;
+  rt?: string | null;
+  rw?: string | null;
+  kelurahan?: string | null;
+  kecamatan?: string | null;
+  kabupaten_kota?: string | null;
   tanggal_lahir: Date;
   tinggi_badan_cm: number;
   berat_badan_kg: number;
@@ -32,6 +37,11 @@ export const profilIbuService = {
       update: {
         nik: input.nik,
         alamat: input.alamat,
+        rt: input.rt ?? null,
+        rw: input.rw ?? null,
+        kelurahan: input.kelurahan ?? null,
+        kecamatan: input.kecamatan ?? null,
+        kabupaten_kota: input.kabupaten_kota ?? null,
         tanggal_lahir: input.tanggal_lahir,
         tinggi_badan_cm: input.tinggi_badan_cm,
         berat_badan_kg: input.berat_badan_kg,

@@ -31,6 +31,7 @@ type KaderItem = {
   id: string;
   name: string;
   email: string;
+  wilayah_name?: string | null;
   wilayah?: { nama_wilayah: string } | null;
 };
 
@@ -85,7 +86,10 @@ export default function MobilePuskesmasDashboard() {
   const [loadError, setLoadError] = useState<string | null>(null);
 
   const topWilayah = useMemo(() => {
-    return [...wilayahStats].sort((a, b) => b.prevalensi - a.prevalensi).slice(0, 5);
+    return [...wilayahStats].sort((a, b) => {
+      if (b.prevalensi !== a.prevalensi) return b.prevalensi - a.prevalensi;
+      return a.nama_wilayah.localeCompare(b.nama_wilayah, "id-ID");
+    });
   }, [wilayahStats]);
 
   const anakButuhPerhatian = useMemo(() => {
@@ -113,7 +117,10 @@ export default function MobilePuskesmasDashboard() {
   const performaKaderWilayah = useMemo(() => {
     const kaderCountByWilayah = new Map<string, number>();
     for (const kader of kaders) {
-      const wilayahName = kader.wilayah?.nama_wilayah || "Tidak diketahui";
+      const wilayahName =
+        kader.wilayah_name?.trim() ||
+        kader.wilayah?.nama_wilayah?.trim() ||
+        "Tidak diketahui";
       kaderCountByWilayah.set(wilayahName, (kaderCountByWilayah.get(wilayahName) || 0) + 1);
     }
     return wilayahStats
@@ -123,8 +130,10 @@ export default function MobilePuskesmasDashboard() {
         const status = kaderCount === 0 || rasioBalitaPerKader > 40 ? "perlu-perhatian" : "aktif";
         return { ...w, kaderCount, rasioBalitaPerKader, status };
       })
-      .sort((a, b) => b.totalBalita - a.totalBalita)
-      .slice(0, 6);
+      .sort((a, b) => {
+        if (b.totalBalita !== a.totalBalita) return b.totalBalita - a.totalBalita;
+        return a.nama_wilayah.localeCompare(b.nama_wilayah, "id-ID");
+      });
   }, [kaders, wilayahStats]);
 
   const laporanBulananPreview = useMemo(() => {
