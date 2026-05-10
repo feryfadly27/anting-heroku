@@ -44,6 +44,8 @@ export default [
   route("api/parent/dashboard", "routes/api.parent.dashboard.tsx"),
   route("api/parent/profil-ibu", "routes/api.parent.profil-ibu.tsx"),
   route("api/parent/profil-anak", "routes/api.parent.profil-anak.tsx"),
+  route("api/parent/notifications", "routes/api.parent.notifications.tsx"),
+  route("api/parent/notifications/mark-read", "routes/api.parent.notifications.mark-read.tsx"),
   route("api/cadre/dashboard", "routes/api.cadre.dashboard.tsx"),
   route("api/puskesmas/dashboard", "routes/api.puskesmas.dashboard.tsx"),
 ] satisfies RouteConfig;

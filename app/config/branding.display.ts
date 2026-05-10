@@ -2,9 +2,9 @@
  * Teks merek untuk pengguna akhir (UI, meta, manifest).
  * Nama proyek/repo/internal dapat tetap merujuk ke "Anting"; tidak mengubah route atau domain data.
  */
-export const BRAND_DISPLAY_NAME = "Diari";
+export const BRAND_DISPLAY_NAME = "Diari SiKecil";
 
-export const BRAND_TAGLINE = "Data Informasi Anak Responsif & Terintegrasi";
+export const BRAND_TAGLINE = "Digitalisasi Arsip Mandiri Si Kecil";
 
 /** Paragraf pengantar panjang (landing & dokumentasi pengguna). */
 export const BRAND_DESCRIPTION_LONG =

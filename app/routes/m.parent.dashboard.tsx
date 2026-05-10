@@ -8,6 +8,19 @@ import { MobileParentNav } from "~/components/mobile-parent-nav";
 import styles from "./m.parent.dashboard.module.css";
 import { brandPageTitle } from "~/config/branding.display";
 
+type NotificationSourceType = "informasi" | "kunjungan_reminder";
+
+type ParentNotificationItem = {
+  id: string;
+  sourceType: NotificationSourceType;
+  sourceId: string;
+  title: string;
+  message: string;
+  createdAt: string;
+  read: boolean;
+  data: Record<string, unknown>;
+};
+
 const parentApi = {
   fetchWithError: async (url: string, options?: RequestInit) => {
     const r = await fetch(url, options);
@@ -19,6 +32,22 @@ const parentApi = {
   },
   getStats: () => parentApi.fetchWithError("/api/parent/dashboard?action=stats"),
   getSummaries: () => parentApi.fetchWithError("/api/parent/dashboard?action=summaries"),
+  getNotifications: (limit: number = 30) => parentApi.fetchWithError(`/api/parent/notifications?limit=${limit}`),
+  markNotificationsRead: (params: {
+    markAll?: boolean;
+    items?: Array<{ sourceType: NotificationSourceType; sourceId: string }>;
+  }) => {
+    const form = new FormData();
+    if (params.markAll) {
+      form.set("markAll", "true");
+    } else {
+      form.set("items", JSON.stringify(params.items ?? []));
+    }
+    return parentApi.fetchWithError("/api/parent/notifications/mark-read", {
+      method: "POST",
+      body: form,
+    });
+  },
 };
 
 export function meta({}: Route.MetaArgs) {
@@ -82,6 +111,10 @@ export default function MobileParentDashboard() {
   const [stats, setStats] = useState<any>(null);
   const [anakSummaries, setAnakSummaries] = useState<any[]>([]);
   const [selectedAnakIdx, setSelectedAnakIdx] = useState(0);
+  const [notifications, setNotifications] = useState<ParentNotificationItem[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [notifOpen, setNotifOpen] = useState(false);
+  const [notifLoading, setNotifLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -108,13 +141,48 @@ export default function MobileParentDashboard() {
     navigate("/login", { replace: true });
   };
 
+  const loadNotifications = async (limit: number = 30) => {
+    setNotifLoading(true);
+    try {
+      const data = await parentApi.getNotifications(limit);
+      setNotifications(data.items || []);
+      setUnreadCount(data.unreadCount || 0);
+      return data as { items: ParentNotificationItem[]; unreadCount: number };
+    } catch (error) {
+      console.error(error);
+      toast({ title: "Error", description: "Gagal memuat notifikasi", variant: "destructive" });
+      return { items: [], unreadCount: 0 };
+    } finally {
+      setNotifLoading(false);
+    }
+  };
+
+  const openNotifications = async () => {
+    setNotifOpen(true);
+    const latest = await loadNotifications(30);
+    const unreadItems = (latest.items || [])
+      .filter((x) => !x.read)
+      .map((x) => ({ sourceType: x.sourceType, sourceId: x.sourceId }));
+
+    if (unreadItems.length > 0) {
+      await parentApi.markNotificationsRead({ items: unreadItems });
+      await loadNotifications(30);
+    }
+  };
+
   const loadData = async () => {
     try {
       setLoading(true);
       setLoadError(null);
-      const [statsData, summaries] = await Promise.all([parentApi.getStats(), parentApi.getSummaries()]);
+      const [statsData, summaries, notifData] = await Promise.all([
+        parentApi.getStats(),
+        parentApi.getSummaries(),
+        parentApi.getNotifications(30),
+      ]);
       setStats(statsData);
       setAnakSummaries(summaries);
+      setNotifications(notifData.items || []);
+      setUnreadCount(notifData.unreadCount || 0);
     } catch (error) {
       console.error(error);
       setLoadError("Gagal memuat data. Cek koneksi lalu coba lagi.");
@@ -164,9 +232,15 @@ export default function MobileParentDashboard() {
           <h2 className={styles.headerName}>Halo Bunda {userName}</h2>
           <p className={styles.headerSubtext}>Semoga harimu menyenangkan.</p>
         </div>
-        <button className={styles.headerNotif} onClick={handleLogout} aria-label="Logout">
-          <span className={styles.icon}>logout</span>
-        </button>
+        <div className={styles.headerActions}>
+          <button className={styles.headerNotif} onClick={openNotifications} aria-label="Notifikasi">
+            <span className={styles.icon}>notifications</span>
+            {unreadCount > 0 && <span className={styles.bellBadge}>{unreadCount > 99 ? "99+" : unreadCount}</span>}
+          </button>
+          <button className={styles.headerNotif} onClick={handleLogout} aria-label="Logout">
+            <span className={styles.icon}>logout</span>
+          </button>
+        </div>
       </header>
 
       <main className={styles.main}>
@@ -174,7 +248,8 @@ export default function MobileParentDashboard() {
         {stats && (
           <section className={styles.statsSection}>
             <p className={styles.lastUpdated}>
-              Update terakhir: {stats.lastUpdateDate ? new Date(stats.lastUpdateDate).toLocaleDateString("id-ID") : "Belum ada"}
+              Update terakhir:{" "}
+              {stats.lastUpdateDate ? new Date(stats.lastUpdateDate).toLocaleDateString("id-ID") : "Belum ada"}
             </p>
             <div className={styles.statsGrid}>
               <div className={styles.statCard}>
@@ -447,6 +522,42 @@ export default function MobileParentDashboard() {
           </section>
         )}
       </main>
+
+      {notifOpen && (
+        <div className={styles.notificationOverlay} onClick={() => setNotifOpen(false)}>
+          <div className={styles.notificationPanel} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.notificationHeader}>
+              <h3>Notifikasi</h3>
+              <button className={styles.headerNotif} onClick={() => setNotifOpen(false)} aria-label="Tutup notifikasi">
+                <span className={styles.icon}>close</span>
+              </button>
+            </div>
+
+            {notifLoading ? (
+              <div className={styles.notificationEmpty}>Memuat notifikasi...</div>
+            ) : notifications.length === 0 ? (
+              <div className={styles.notificationEmpty}>Belum ada notifikasi.</div>
+            ) : (
+              <div className={styles.notificationList}>
+                {notifications.map((item) => (
+                  <div key={item.id} className={styles.notificationItem} data-read={item.read ? "true" : "false"}>
+                    <div className={styles.notificationTopRow}>
+                      <span className={styles.sourceChip} data-source={item.sourceType}>
+                        {item.sourceType === "informasi" ? "Informasi" : "Reminder Kunjungan"}
+                      </span>
+                      <span className={styles.notificationDate}>
+                        {new Date(item.createdAt).toLocaleString("id-ID")}
+                      </span>
+                    </div>
+                    <p className={styles.notificationTitle}>{item.title}</p>
+                    <p className={styles.notificationMessage}>{item.message}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <MobileParentNav />
     </div>
